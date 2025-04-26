@@ -1,3 +1,6 @@
+use BD_JAPAMA
+go
+
 CREATE TABLE Servicios.ReporteProblema (
     ReporteId BIGINT PRIMARY KEY NOT NULL,
     CONSTRAINT ReporteId UNIQUE(ReporteId),
