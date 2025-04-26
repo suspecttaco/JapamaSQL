@@ -98,7 +98,7 @@ GO
 CREATE SCHEMA [Servicios]
 GO
 /****** Object:  Schema [Sucursales]    Script Date: 25/04/2025 03:22:58 p. m. ******/
-CREATE SCHEMA [Sucursales]
+CREATE SCHEMA [Sucursales] -- Juan Campos
 GO
 USE [master]
 GO

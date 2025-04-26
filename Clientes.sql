@@ -1,3 +1,6 @@
+use BD_JAPAMA
+go
+
 CREATE TABLE Clientes.Cliente (
     ClienteId BIGINT PRIMARY KEY NOT NULL,
     CONSTRAINT ClienteId UNIQUE(ClienteId),
@@ -27,9 +30,9 @@ CREATE TABLE Clientes.Contrato (
 
     fecha_mod DATE NOT NULL
 );
-CREATE TABLE Clientes.TipoTarida (
+CREATE TABLE Clientes.TipoTarifa (
     TipoTarifaId BIGINT PRIMARY KEY NOT NULL,
-    CONSTRAINT TipoTaridaID UNIQUE(TipoTaridaID),
+    CONSTRAINT TipoTarifaId UNIQUE(TipoTarifaId),
 
     nombre VARCHAR(50) NOT NULL,
 
@@ -39,7 +42,7 @@ CREATE TABLE Clientes.TipoTarida (
     fecha_mod DATE NOT NULL
 
 );
-CREATE TABLE Clienes.Tarifa(
+CREATE TABLE Clientes.Tarifa(
     TarifaId BIGINT PRIMARY KEY NOT NULL,
     CONSTRAINT TarifaId UNIQUE(TarifaId),
 
@@ -49,18 +52,6 @@ CREATE TABLE Clienes.Tarifa(
     base_saneamiento MONEY NOT NULL,
     max_m3 INT NOT NULL,
     fecha_mod DATE NOT NULL
-);
-CREATE TABLE Clientes.ReporteProblema (
-    ReporteId BIGINT PRIMARY KEY NOT NULL,
-    CONSTRAINT ReporteId UNIQUE(ReporteId),
-
-    ClienteId BIGINT NOT NULL,
-    descripcion VARCHAR(50) NOT NULL,
-    fecha_reporte DATE NOT NULL,
-    EmpleadoId BIGINT NOT NULL,
-    seguimiento VARCHAR(50) NOT NULL,
-    DepartamentoId BIGINT NOT NULL,
-    fecha_mod DATE NOT NULL,
 );
 CREATE TABLE Clientes.Adeudos (
     AdeudiId BIGINT PRIMARY KEY NOT NULL,
@@ -72,7 +63,7 @@ CREATE TABLE Clientes.Adeudos (
     CargoId BIGINT NOT NULL,
     adeudo_anterior MONEY NOT NULL,
     adeudo_actual MONEY NOT NULL,
-    IVA MONET NOT NULL,
+    IVA MONEY NOT NULL,
     fecha_vencimiento DATE NOT NULL,
     fecha_mod DATE NOT NULL
 );
@@ -91,6 +82,5 @@ CREATE TABLE Clientes.CargoServicio (
     CargoId BIGINT PRIMARY KEY NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
     monto MONEY NOT NULL,
-    descuento MONEY NOT NULL,
     fecha_mod DATE NOT NULL
 );
