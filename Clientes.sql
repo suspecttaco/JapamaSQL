@@ -54,8 +54,8 @@ CREATE TABLE Clientes.Tarifa(
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.Adeudos (
-    AdeudiId BIGINT PRIMARY KEY NOT NULL,
-    CONSTRAINT AdeudoId UNIQUE(AdeudiId),
+    AdeudoId BIGINT PRIMARY KEY NOT NULL,
+    CONSTRAINT AdeudoId UNIQUE(AdeudoId),
 
     EstablecimientoId BIGINT NOT NULL,
     ClienteId BIGINT NOT NULL,
@@ -84,3 +84,21 @@ CREATE TABLE Clientes.CargoServicio (
     monto MONEY NOT NULL,
     fecha_mod DATE NOT NULL
 );
+
+ALTER TABLE Clientes.Contrato ADD CONSTRAINT
+FK_TipoTarifaId FOREIGN kEY (TipoTarifaId) REFERENCES Clientes.TipoTarifa (TipoTarifaId);
+ALTER TABLE Clientes.TipoTarifa ADD CONSTRAINT
+FK_TarifaId FOREIGN KEY (TarifaId) REFERENCES Clientes.Tarifa(TarifaId);
+
+ALTER TABLE Clietes.Adeudos ADD CONSTRAINT
+FK_EstablecimientoId FOREIGN KEY (EstablecimientoId) REFERENCES Sucursales.Establecimiento(EstablecimientoId);
+
+
+ALTER TABLE Clientes.Adeudos ADD CONSTRAINT
+FK_ClienteId FOREIGN KEY (ClienteId) REFERENCES Clientes.Cliente(ClienteId);
+ALTER TABLE Clientes.Adeudos ADD CONSTRAINT
+FK_ConsumoId FOREIGN KEY (ConsumoId) REFERENCES Clientes.Consumo(ConsumoId);
+ALTER TABLE Clientes.Adeudos ADD CONSTRAINT
+FK_CargoId FOREIGN KEY (CargoId) REFERENCES Clientes.CargoServicio (CargoId);
+ALTER TABLE Clientes.cliente ADD CONSTRAINT
+FK_ContratoId FOREIGN KEY (ContratoId) REFERENCES Clientes.Contrato(ContratoId);
