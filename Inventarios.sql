@@ -33,7 +33,7 @@ create table [Inventarios].[Mobiliario] (
 
 create table [Inventarios].[TallerVehiculo] (
     [TallerId] int primary key identity not null,
-    [PersonaId] bigint, --Pendiente relacion
+    [PersonaId] bigint,
     [fecha_mod] datetime not null
 )
 
@@ -79,7 +79,7 @@ create table [Inventarios].[Facturacion] (
 
 create table [Inventarios].[Proveedor] (
     [ProveedorId] int primary key identity (1,1) not null,
-    [PersonaId] bigint, --Pendiente relacion
+    [PersonaId] bigint,
     [fecha_mod] datetime not null,
 )
 

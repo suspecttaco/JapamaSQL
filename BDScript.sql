@@ -83,16 +83,16 @@ GO
 USE [BD_JAPAMA]
 GO
 /****** Object:  Schema [Clientes]    Script Date: 25/04/2025 03:22:58 p. m. ******/
-CREATE SCHEMA [Clientes]
+CREATE SCHEMA [Clientes] --Juan Campos
 GO
 /****** Object:  Schema [Inventarios]    Script Date: 25/04/2025 03:22:58 p. m. ******/
-CREATE SCHEMA [Inventarios]
+CREATE SCHEMA [Inventarios] --Ibhar Gomez
 GO
 /****** Object:  Schema [Personas]    Script Date: 25/04/2025 03:22:58 p. m. ******/
-CREATE SCHEMA [Personas]
+CREATE SCHEMA [Personas] --Ibhar Gomez
 GO
 /****** Object:  Schema [RecursosHumanos]    Script Date: 25/04/2025 03:22:58 p. m. ******/
-CREATE SCHEMA [RecursosHumanos]
+CREATE SCHEMA [RecursosHumanos] --Diego Barreras
 GO
 /****** Object:  Schema [Servicios]    Script Date: 25/04/2025 03:22:58 p. m. ******/
 CREATE SCHEMA [Servicios]
