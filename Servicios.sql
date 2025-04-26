@@ -54,3 +54,12 @@ CREATE TABLE Servicios.ProgramaDescuento (
     fecha_final DATE NOT NULL,
     fecha_mod DATE NOT NULL
 );
+
+ALTER TABLE Servicios.TipoServicio ADD CONSTRAINT
+FK_ServicioId FOREIGN KEY (SuspensionId) REFERENCES Servicios.SuspensionServicio(SuspensionId);
+ALTER TABLE Servicios.TipoServicio ADD CONSTRAINT
+FK_ReporteProblema FOREIGN KEY (ReporteProblema) REFERENCES Servicios.ReporteProblema(ReporteId);
+ALTER TABLE Servicios.TipoServicio ADD CONSTRAINT
+FK_ProgramaDescuento FOREIGN KEY (ProgramaDescuento) REFERENCES Servicios.ProgramaDescuento(ProgramaId);
+ALTER TABLE Servicios.TipoServicio ADD CONSTRAINT
+FK_CartaNoAdeudos FOREIGN KEY (CartaNoAdeudos) REFERENCES Servicios.CartaNoAdeudos(CartaId);
