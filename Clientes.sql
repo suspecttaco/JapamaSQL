@@ -89,11 +89,6 @@ ALTER TABLE Clientes.Contrato ADD CONSTRAINT
 FK_TipoTarifaId FOREIGN kEY (TipoTarifaId) REFERENCES Clientes.TipoTarifa (TipoTarifaId);
 ALTER TABLE Clientes.TipoTarifa ADD CONSTRAINT
 FK_TarifaId FOREIGN KEY (TarifaId) REFERENCES Clientes.Tarifa(TarifaId);
-
-ALTER TABLE Clietes.Adeudos ADD CONSTRAINT
-FK_EstablecimientoId FOREIGN KEY (EstablecimientoId) REFERENCES Sucursales.Establecimiento(EstablecimientoId);
-
-
 ALTER TABLE Clientes.Adeudos ADD CONSTRAINT
 FK_ClienteId FOREIGN KEY (ClienteId) REFERENCES Clientes.Cliente(ClienteId);
 ALTER TABLE Clientes.Adeudos ADD CONSTRAINT
