@@ -48,7 +48,7 @@ create table [Inventarios].[Vehiculo] (
     [TipoVehiculoId] int foreign key references [Inventarios].[TipoVehiculo] ([TipoVehiculoId]),
     [matricula] varchar(20) not null,
     [actividad] varchar(1) not null,
-    [EstablecimientoId] int, --Pendiente relacion
+    [EstablecimientoId] bigint, --Pendiente relacion
     [fecha_mod] datetime not null
 )
 
@@ -71,10 +71,10 @@ create table [Inventarios].[Inventario] (
 
 create table [Inventarios].[Facturacion] (
     [FacturaId] bigint primary key identity (1,1) not null,
-    [EstablecimientoId] int, --Pendiente relacion
+    [EstablecimientoId] bigint, --Pendiente relacion
     [fecha_factura] datetime not null,
     [enlace_documento] varchar(100) not null,
-    [fecha_mod] datetime not null,
+    [fecha_mod] datetime not null
 )
 
 create table [Inventarios].[Proveedor] (

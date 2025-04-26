@@ -18,7 +18,7 @@ CREATE TABLE Servicios.SuspensionServicio (
     CONSTRAINT SuspensionId UNIQUE(SuspensionId),
 
     actividad CHAR(1) NULL,
-    CONSTRAINT actividad CHECK(actividad IN('T','P')), --Temporar -> T Permanente -> P 
+    CONSTRAINT actividad CHECK(actividad IN('T','P')), --Temporar -> T Permanente -> P
     descricpion VARCHAR(50) NOT NULL,
     ClienteId BIGINT NOT NULL,
     fecha_suspension DATE NOT NULL,
