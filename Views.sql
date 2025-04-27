@@ -18,3 +18,28 @@
 -- WHERE e.estatus = 'A';
 -- GO
 
+--1.-Lista empleados
+
+--2.-Lista clientes
+
+--3.-Contratos activos
+
+--4.-Lista inventario actual
+
+--5.-Lista proveedores
+
+--6.-Historial reportes (cliente y donde fue)
+
+--7.-Lista sucursales (por tipo)
+
+--8.-Lista empleados (tipo de contrato)
+
+--9.-Lista empledos sindicato
+
+--10.-Lista clientes cartaNoAdeudos
+
+--11.-Lista clientes suspension (info solicitud)
+
+--12.-Lista vehiculos (por sucursal)
+
+--13 - 15.-Lista empleados (por turno especifico) *3 (solo activos)
