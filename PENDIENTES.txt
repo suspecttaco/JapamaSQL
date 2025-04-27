@@ -1,0 +1,59 @@
+VIEWS. -
+1.-Lista empleados
+2.-Lista clientes
+3.-Contratos activos
+4.-Lista inventario actual
+5.-Lista proveedores
+6.-Historial reportes (cliente y donde fue)
+7.-Lista sucursales (por tipo)
+8.-Lista empleados (tipo de contrato)
+9.-Lista empledos sindicato
+10.-Lista clientes cartaNoAdeudos
+11.-Lista clientes suspension (info solicitud)
+12.-Lista vehiculos (por sucursal)
+13 - 15.-Lista empleados (por turno especifico) *3 (solo activos)
+
+FUNCTION. -
+1.- Insertar clientes
+2.- Insertar empleado
+3.- Insertar proveedor
+4.- Insertar producto
+5.- Insertar compra
+6.- Insertar reporteVehiculo
+7.- Insertar Reporte falla servicio
+8.- Insertar Adeudo
+
+TRIGGER DML. -
+1.- Actualizar fecha_mod en cada actualización de tuplas (EN TODAS LAS TABLAS ._.)
+2.- Bitacora de modificaciones 
+3.- Bitacora entrada/salida inventario
+4.- Bitcora de uso de vehiculos
+5.- Bigtacora modificaciones en el sueldo
+6.- Bitacora de retardos y faltas 
+7.- Bitacora cuentas liquidadas
+8.- Bitacora actualizacion datos empleado
+
+TRIGGER DDL. -
+1.- Cambio en la estructura/esquema de la BD
+
+TRIGGER LOGON. -
+1.- Historial de acceso a la BD
+
+SCALABLE FUNCTION. -
+1.- Total de asistencias
+2.- Total de usuarios activos
+3.- Total de retardos
+4.- Total de tipo de persona fisica/moral
+
+FUNCTION WITH VALUES TABLE
+1.- Numero de  Empleados/contrato especifico
+2.- Historial de asistencia detallado por periodo (fecha inicio -> fecha fin)
+
+SYNONYMS
+1.- RH -> recursos humanos (recursos inhumanos)
+2.- Cliente -> Usuario
+
+Indice que permita agilizar alguna consulta **PENDIENTE**
+1.-
+
+
