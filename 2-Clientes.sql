@@ -2,7 +2,7 @@ use BD_JAPAMA
 go
 
 CREATE TABLE Clientes.Cliente (
-    ClienteId BIGINT PRIMARY KEY NOT NULL,
+    ClienteId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT ClienteId UNIQUE(ClienteId),
 
     PersonaId BIGINT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Clientes.Cliente (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.Contrato (
-    ContratoId BIGINT PRIMARY KEY NOT NULL,
+    ContratoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT ContratoId UNIQUE(ContratoId),
 
     fecha_contrato DATE NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Clientes.Contrato (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.TipoTarifa (
-    TipoTarifaId BIGINT PRIMARY KEY NOT NULL,
+    TipoTarifaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT TipoTarifaId UNIQUE(TipoTarifaId),
 
     nombre VARCHAR(50) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE Clientes.TipoTarifa (
 
 );
 CREATE TABLE Clientes.Tarifa(
-    TarifaId BIGINT PRIMARY KEY NOT NULL,
+    TarifaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT TarifaId UNIQUE(TarifaId),
 
     precio_base MONEY NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE Clientes.Tarifa(
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.Adeudos (
-    AdeudoId BIGINT PRIMARY KEY NOT NULL,
+    AdeudoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT AdeudoId UNIQUE(AdeudoId),
 
     EstablecimientoId BIGINT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE Clientes.Adeudos (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.Consumo (
-    ConsumoId BIGINT PRIMARY KEY NOT NULL,
+    ConsumoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT ConsumoId UNIQUE(ConsumoId),
 
     lectura_anterior MONEY NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE Clientes.Consumo (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.CargoServicio (
-    CargoId BIGINT PRIMARY KEY NOT NULL,
+    CargoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     descripcion VARCHAR(50) NOT NULL,
     monto MONEY NOT NULL,
     fecha_mod DATE NOT NULL

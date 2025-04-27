@@ -19,7 +19,7 @@ create table [Personas].[Domicilio](
     [domicilio_linea2] varchar(100),
     [cod_postal] varchar(5) not null,
     [LocalidadId] int not null foreign key references Personas.Localidad (LocalidadId),
-    [TipoDomicilioId] int,
+    [TipoDomicilioId] int not null foreign key references Personas.TipoDomicilio (TipoDomicilioId),
     [fecha_mod] datetime not null
 )
 

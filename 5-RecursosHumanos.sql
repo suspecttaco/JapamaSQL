@@ -63,6 +63,7 @@ CREATE TABLE [RecursosHumanos].[Empleado]
     [edo_civil] varchar(3) NOT NULL,
     [fecha_nacimiento] date NOT NULL,
     [fecha_contratacion] datetime NOT NULL,
+    [actividad] char(1) NOT NULL,
     [fecha_mod] datetime NOT NULL,
     [PersonaId] bigint NOT NULL, --Pendiente
     [TurnoId] tinyint NOT NULL foreign key references RecursosHumanos.Turno (TurnoId),
