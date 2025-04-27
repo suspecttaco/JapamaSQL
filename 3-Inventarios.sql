@@ -65,7 +65,8 @@ create table [Inventarios].[Inventario] (
     [ProductoId] int primary key identity (1,1) not null,
     [MaterialId] int foreign key references [Inventarios].[Material] ([MaterialId]),
     [MobiliarioId] int foreign key references [Inventarios].[Mobiliario] ([MobiliarioId]),
-    [VehiculoId] int,
+    [VehiculoId] int foreign key references Inventarios.Vehiculo (VehiculoId),
+    [cantidad] int not null,
     [fecha_mod] datetime not null
 )
 
