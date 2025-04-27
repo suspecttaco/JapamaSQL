@@ -60,7 +60,7 @@ CREATE VIEW Servicios.V3_ContratosActivos AS SELECT
 FROM Servicios.SuspensionServicio ss
 	INNER JOIN Clientes.Cliente cl ON ss.ClienteId = cl.ClienteId
 	INNER JOIN Clientes.Contrato cnt ON ss.ClienteId = cnt.ContratoId
-WHERE ss.actividad = NULL
+WHERE ss.actividad IS NULL
 GO
 --4.-Lista inventario actual
 CREATE VIEW Inventarios.V4_ListaInventarioActual AS SELECT
