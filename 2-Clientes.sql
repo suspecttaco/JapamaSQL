@@ -23,7 +23,7 @@ CREATE TABLE Clientes.Contrato (
     
     enlace_documento varchar(50) NOT NULL,
 
-    TipoTaridaId BIGINT NOT NULL,
+    TipoTarifaId BIGINT NOT NULL,
     --CONSTRAINT FK_TipoTarifaId FOREIGN kEY (TipoTaridaId) REFERENCES Clientes.TipoTarifa (TipoTaridaId),
 
     medidor VARCHAR(12) NOT NULL,
