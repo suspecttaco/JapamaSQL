@@ -11,6 +11,8 @@ CREATE TABLE Servicios.ReporteProblema (
     EmpleadoId BIGINT NOT NULL,
     seguimiento VARCHAR(50) NOT NULL,
     DepartamentoId BIGINT NOT NULL,
+    DomicilioId BIGINT NOT NULL,
+    observaciones VARCHAR(50) NULL,
     fecha_mod DATE NOT NULL,
 );
 CREATE TABLE Servicios.SuspensionServicio (

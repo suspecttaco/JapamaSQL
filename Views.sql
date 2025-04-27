@@ -87,9 +87,36 @@ FROM Inventarios.Inventario inv
 --	INNER JOIN Inventarios.TipoVehiculo tveh ON inv.VehiculoId = tveh.TipoVehiculoId
 GO
 --5.-Lista proveedores
-
+CREATE VIEW Inventarios.V5_ListaProveedores AS SELECT
+	pro.ProveedorId,
+	pro.PersonaId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre,
+	per.tipo_persona,
+	per.NumeroTelId,
+	per.EmailId
+FROM Inventarios.Proveedor pro
+	INNER JOIN Personas.Persona per ON pro.PersonaId = per.PersonaId
+--	INNER JOIN Personas.NumeroTelefonico tel ON pro.PersonaId = tel.NumeroTelId
+GO
 --6.-Historial reportes (cliente y donde fue)
-
+CREATE VIEW Servicios.V6_ListaReportes AS SELECT --cliente y donde fue
+	rp.ReporteId,
+	rp.ClienteId,
+	rp.descripcion,
+	rp.DepartamentoId,
+	rp.fecha_reporte,
+	dom.DomicilioId,
+	dom.LocalidadId,
+	dom.domicilio_linea1,
+	dom.domicilio_linea2,
+	dom.cod_postal
+FROM Servicios.ReporteProblema rp
+	INNER JOIN Clientes.Cliente cli ON rp.ClienteId = cli.ClienteId
+	INNER JOIN Sucursales.Departamento dpa ON rp.DepartamentoId = dpa.DepartamentoId
+	INNER JOIN Personas.Domicilio dom ON rp.DomicilioId = dom.DomicilioId
+GO
 --7.-Lista sucursales (por tipo)
 
 --8.-Lista empleados (tipo de contrato)

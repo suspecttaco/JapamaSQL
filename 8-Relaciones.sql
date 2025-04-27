@@ -76,3 +76,8 @@ alter table RecursosHumanos.Empleado
 add constraint FK_Empleado_Persona
 foreign key (PersonaId)
 references Personas.Persona (PersonaId)
+
+--ReportesProblema a Direccion
+ALTER TABLE Servicios.ReporteProblema ADD CONSTRAINT
+FK_DireccionId FOREIGN KEY (DomicilioId) REFERENCES Personas.Domicilio(DomicilioId);
+GO
