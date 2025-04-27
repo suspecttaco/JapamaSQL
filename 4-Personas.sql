@@ -54,7 +54,3 @@ create table [Personas].[Persona] (
     [fecha_mod] datetime not null
 )
 
-alter table Personas.Domicilio
-add constraint FK_Domicilio_Localidad
-foreign key (LocalidadId)
-references Personas.Localidad (LocalidadId)
