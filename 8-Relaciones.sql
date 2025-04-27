@@ -81,3 +81,8 @@ references Personas.Persona (PersonaId)
 ALTER TABLE Servicios.ReporteProblema ADD CONSTRAINT
 FK_DireccionId FOREIGN KEY (DomicilioId) REFERENCES Personas.Domicilio(DomicilioId);
 GO
+
+--Empleado a Establecimiento
+ALTER TABLE RecursosHumanos.Empleado ADD CONSTRAINT
+FK_EstablecimientoId FOREIGN KEY (EstablecimientoId) REFERENCES Sucursales.Establecimiento(EstablecimientoId);
+GO

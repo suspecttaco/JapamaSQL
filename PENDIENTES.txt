@@ -6,12 +6,11 @@ VIEWS. -
 5.-Lista proveedores
 6.-Historial reportes (cliente y donde fue)
 7.-Lista sucursales (por tipo)
-8.-Lista empleados (tipo de contrato)
-9.-Lista empledos sindicato
-10.-Lista clientes cartaNoAdeudos
-11.-Lista clientes suspension (info solicitud)
-12.-Lista vehiculos (por sucursal)
-13 - 15.-Lista empleados (por turno especifico) *3 (solo activos)
+8 - 10.-Lista empleados (tipo de contrato) *3
+11.-Lista clientes cartaNoAdeudos
+12.-Lista clientes suspension (info solicitud)
+13.-Lista vehiculos (por sucursal)
+14 - 16.-Lista empleados (por turno especifico) *3 (solo activos)
 
 FUNCTION. -
 1.- Insertar clientes

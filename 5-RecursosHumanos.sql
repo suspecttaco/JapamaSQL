@@ -37,7 +37,7 @@ CREATE TABLE [RecursosHumanos].[Nomina]
 create table [RecursosHumanos].[ContratoEmpleado]
 (
     [ContratoId] int primary key not null identity (1,1),
-    [tipo_contrato] varchar(3) not null,
+    [tipo_contrato] varchar(3) not null, --SIN ->Sindicalizado CON->Confianza Eve->Eventuales
     [fecha_contrato] datetime not null,
     [fecha_vencimiento] datetime not null,
     [enlace_documento] varchar(50) not null,
@@ -65,9 +65,10 @@ CREATE TABLE [RecursosHumanos].[Empleado]
     [fecha_contratacion] datetime NOT NULL,
     [actividad] char(1) NOT NULL,
     [fecha_mod] datetime NOT NULL,
-    [PersonaId] bigint NOT NULL, --Pendiente
+    [PersonaId] bigint NOT NULL, 
     [TurnoId] tinyint NOT NULL foreign key references RecursosHumanos.Turno (TurnoId),
     [NominaId] int NOT NULL foreign key references RecursosHumanos.Nomina (NominaId),
+    [EstablecimientoId] bigint NOT NULL
 )
 
 CREATE TABLE [RecursosHumanos].[Sindicato]
