@@ -118,9 +118,92 @@ FROM Servicios.ReporteProblema rp
 	INNER JOIN Personas.Domicilio dom ON rp.DomicilioId = dom.DomicilioId
 GO
 --7.-Lista sucursales (por tipo)
-
+CREATE VIEW Sucursales.V7_ListaSucursaleTipo AS SELECT
+	suc.EstablecimientoId,
+	suc.nombre AS Establecimiento,
+	suc.TipoEstablecimientoId,
+	tsuc.nombre AS TipoEstablecimiento,
+	dom.DomicilioId,
+	dom.LocalidadId,
+	dom.domicilio_linea1,
+	dom.domicilio_linea2,
+	dom.cod_postal,
+	dpa.DepartamentoId,
+	dpa.descripcion
+FROM Sucursales.Establecimiento suc
+	INNER JOIN Sucursales.TipoEstablecimiento tsuc ON suc.TipoEstablecimientoId = tsuc.TipoEstablecimientId
+	INNER JOIN Personas.Domicilio dom ON suc.DomicilioId = dom.DomicilioId
+	INNER JOIN Sucursales.Departamento dpa ON suc.DepartamentoId = dpa.DepartamentoId
+GO
 --8.-Lista empleados (tipo de contrato)
+CREATE VIEW RecursosHumanos.V8_EmpleadosSindicato AS SELECT
+	emp.EmpleadoId,
+	emp.PersonaId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre,
+	emp.edo_civil,
+	suc.EstablecimientoId,
+	suc.nombre AS Establecimiento,
+	suc.DomicilioId,
+	emp.fecha_contratacion,
+	ctemp.fecha_vencimiento,
+	pst.PuestoId,
+	pst.salario_base,
+	pst.bonos
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN Personas.Persona per ON emp.PersonaId = emp.PersonaId
+	INNER JOIN Sucursales.Establecimiento suc ON emp.EstablecimientoId = suc.EstablecimientoId
+	INNER JOIN RecursosHumanos.ContratoEmpleado ctemp ON emp.ContratoId = ctemp.ContratoId
+	INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
+WHERE ctemp.tipo_contrato = 'SIN';
+GO
 
+CREATE VIEW RecursosHumanos.V9_EmpleadosConfianza AS SELECT
+	emp.EmpleadoId,
+	emp.PersonaId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre,
+	emp.edo_civil,
+	suc.EstablecimientoId,
+	suc.nombre AS Establecimiento,
+	suc.DomicilioId,
+	emp.fecha_contratacion,
+	ctemp.fecha_vencimiento,
+	pst.PuestoId,
+	pst.salario_base,
+	pst.bonos
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN Personas.Persona per ON emp.PersonaId = emp.PersonaId
+	INNER JOIN Sucursales.Establecimiento suc ON emp.EstablecimientoId = suc.EstablecimientoId
+	INNER JOIN RecursosHumanos.ContratoEmpleado ctemp ON emp.ContratoId = ctemp.ContratoId
+	INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
+WHERE ctemp.tipo_contrato = 'CON';
+GO
+
+CREATE VIEW RecursosHumanos.V10_EmpleadosEventuaales AS SELECT
+	emp.EmpleadoId,
+	emp.PersonaId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre,
+	emp.edo_civil,
+	suc.EstablecimientoId,
+	suc.nombre AS Establecimiento,
+	suc.DomicilioId,
+	emp.fecha_contratacion,
+	ctemp.fecha_vencimiento,
+	pst.PuestoId,
+	pst.salario_base,
+	pst.bonos
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN Personas.Persona per ON emp.PersonaId = emp.PersonaId
+	INNER JOIN Sucursales.Establecimiento suc ON emp.EstablecimientoId = suc.EstablecimientoId
+	INNER JOIN RecursosHumanos.ContratoEmpleado ctemp ON emp.ContratoId = ctemp.ContratoId
+	INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
+WHERE ctemp.tipo_contrato = 'EVE';
+GO
 --9.-Lista empledos sindicato
 
 --10.-Lista clientes cartaNoAdeudos
