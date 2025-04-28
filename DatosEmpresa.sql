@@ -16,7 +16,7 @@ GO
 INSERT INTO Auditoria.DatosEmpresa (nombre_corto, nombre_completo, direccion, colonia, codigo_postal, localidad,
                                     numero_contacto, email)
 VALUES ('JAPAMA', 'Junta de Agua Potable y Alcantarillado del Municipio de Ahome',
-        'C. Ángel Flores esq. con Av. Aquiles Serdán', 'C. Centro', '81200', 'Los Mochis, Sinaloa, Mexico',
+        N'C. Ángel Flores esq. con Av. Aquiles Serdán', 'C. Centro', '81200', 'Los Mochis, Sinaloa, Mexico',
         '6688120404','ccj@japamadigital.gob.mx')
 GO
 
