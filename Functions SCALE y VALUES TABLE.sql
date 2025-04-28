@@ -68,14 +68,32 @@ BEGIN
 END
 GO
 -- 2.- Historial de asistencia detallado por periodo (fecha inicio -> fecha fin)
-CREATE FUNCTION RecursosHumanaos.AsistenciaPeriodo (@fecha_inicio DATETIME ,@fecha_fin DATETIME)
+CREATE FUNCTION RecursosHumanos.AsistenciaPeriodo (@fecha_inicio DATETIME ,@fecha_fin DATETIME)
 RETURNS @AsistenciaPeriodo TABLE (
-	
+	nom_establecimiento varchar(50),
+    nom_empleado varchar(50),
+    ap1 varchar(50),
+    ap2 varchar(50),
+    fecha date,
+    hora_entrada time(0),
+    hora_salida time(0)
 )
 AS
 BEGIN
 	INSERT @AsistenciaPeriodo
-
+        SELECT
+            Es.nombre,
+            P.nombre,
+            P.apellido1,
+            P.apellido2,
+            CONVERT(DATE,A.fecha_entrada),
+            CONVERT(TIME(0), A.fecha_entrada),
+            CONVERT(TIME(0),A.fecha_salida)
+        FROM RecursosHumanos.Empleado as E
+            INNER JOIN RecursosHumanos.HistorialAsistencia as A ON E.EmpleadoId = A.EmpleadoId
+            INNER JOIN Personas.Persona P ON E.PersonaId = P.PersonaId
+	        INNER JOIN Sucursales.Establecimiento as Es ON E.EstablecimientoId = Es.EstablecimientoId
+	    WHERE A.fecha_entrada >= @fecha_inicio AND A.fecha_entrada <= @fecha_fin
 	RETURN
 END
 GO
