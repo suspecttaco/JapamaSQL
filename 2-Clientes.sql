@@ -13,6 +13,8 @@ CREATE TABLE Clientes.Cliente (
     ContratoId BIGINT NOT NULL,
     --CONSTRAINT FK_ContratoId FOREIGN KEY (ContratoId) REFERENCES Clientes.Contrato(ContratoId),
 
+    actividad CHAR(1) NULL,
+    CONSTRAINT actividad CHECK(actividad IN('A','T','P')), -- Activo -> A Temporal -> T Permanente -> P
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.Contrato (
