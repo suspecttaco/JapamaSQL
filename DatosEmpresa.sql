@@ -1,5 +1,3 @@
-DROP TABLE Auditoria.DatosEmpresa
-GO
 
 CREATE TABLE Auditoria.DatosEmpresa
 (
