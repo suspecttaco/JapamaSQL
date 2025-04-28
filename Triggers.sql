@@ -161,10 +161,44 @@ END
 GO
 
 EXEC Auditoria.TR_BITACORA_MOD_ALL
--- 3.- Bitacora entrada/salida inventario
+-- 3.- Bitacora modificaciones de inventario
+CREATE TABLE Auditoria.ModificacionInventario
+(
+    ModId             BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
+    ProductId         INT                NOT NULL REFERENCES Inventarios.Inventario (ProductoId),
+    cantidad_anterior INT                NOT NULL,
+    cantidad_nueva    INT                NOT NULL,
+    fecha             DATE               NOT NULL
+)
 
+CREATE TRIGGER TR_Historial_Inventario
+    ON Inventarios.Inventario
+    AFTER UPDATE
+    AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Auditoria.ModificacionInventario (ProductId, cantidad_anterior, cantidad_nueva, fecha)
+    VALUES (inserted.ProductoId, deleted.cantidad, inserted.cantidad, GETDATE())
+END
+GO
 -- 4.- Evitar que el sueldo ingresado sea menor al registrado
 
+CREATE TRIGGER TR_REGLA_SUELDOS
+    ON RecursosHumanos.Puesto
+    AFTER UPDATE AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS(SELECT 1
+              FROM inserted
+                       JOIN deleted ON inserted.PuestoId = deleted.PuestoId
+              WHERE inserted.salario_base < deleted.salario_base)
+        BEGIN
+            RAISERROR ('No se puede reducir el sueldo base',16,1);
+            SET inserted.salario_base = deleted.salario_base;
+        END
+END
+GO
 -- 5.- Bigtacora modificaciones en el sueldo a los puestos
 CREATE TABLE Auditoria.HistorialModSueldos
 (
@@ -191,11 +225,77 @@ BEGIN
 END
 GO
 
--- 6.- Bitacora de retardos y faltas
+-- 6.- REGLA: Evitar que un horario dure mas de 8 horas
 
--- 7.- Bitacora cuentas liquidadas
+CREATE TRIGGER TR_HORARIO_MAX
+    ON RecursosHumanos.Turno
+    AFTER UPDATE
+    AS
+BEGIN
+    IF EXISTS (SELECT 1
+               FROM inserted
+                        JOIN deleted ON inserted.TurnoId = deleted.TurnoId
+               WHERE inserted.duracion > 8
+                 AND inserted.tipo = 'MAT')
+        BEGIN
+            RAISERROR ('LA JORNADA MATUTINA SOLO DEBE SER DE 8 HORAS MAXIMAS',16,1);
+            ROLLBACK TRANSACTION;
+        END
+    ELSE
+        IF EXISTS (SELECT 1
+                   FROM inserted
+                            JOIN deleted ON inserted.TurnoId = deleted.TurnoId
+                   WHERE inserted.duracion > 7.5
+                     AND inserted.tipo = 'VES')
+            BEGIN
+                RAISERROR ('LA JORNADA VESPERTINA SOLO DEBE SER DE 7 HORAS Y MEDIA MAXIMAS',16,1);
+                ROLLBACK TRANSACTION;
+            END
+        ELSE
+            IF EXISTS (SELECT 1
+                       FROM inserted
+                                JOIN deleted ON inserted.TurnoId = deleted.TurnoId
+                       WHERE inserted.duracion > 7
+                         AND inserted.tipo = 'NOC')
+                BEGIN
+                    RAISERROR ('LA JORNADA NOCTURNA SOLO DEBE SER DE 7 HORAS MAXIMAS',16,1);
+                    ROLLBACK TRANSACTION;
+                END
 
--- 8.- Bitacora actualizacion datos empleado
+END
+GO
+
+-- 7.- REGLA: DEBE EXISTIR UNO DE LOS SIGUIENTES: MaterialID | MobiliarioId | VehiculoId en la fina de Inventario
+
+CREATE TRIGGER TR_CHECK_TIPO_INVENTARIO
+    ON Inventarios.Inventario
+    AFTER UPDATE
+    AS
+BEGIN
+    IF NOT EXISTS(SELECT 1
+                  FROM inserted
+                  WHERE inserted.MaterialId IS NOT NULL
+                     OR inserted.MobiliarioId IS NOT NULL
+                     OR inserted.VehiculoId IS NOT NULL)
+        BEGIN
+            RAISERROR ('Debe haber minimo un tipo de producto',16,1);
+            ROLLBACK TRANSACTION;
+        END
+END
+GO
+
+-- 8.- Revisar Fecha de vencimiento y aumentar saldo atrasado
+
+CREATE TRIGGER TR_SALDO_ATRASADO
+    ON Clientes.Adeudos
+    AFTER UPDATE
+    AS
+BEGIN
+    UPDATE Clientes.Adeudos
+    SET adeudo_anterior += adeudo_actual
+    WHERE DATEDIFF(DAY, fecha_vencimiento, GETDATE()) > 0
+END
+GO
 
 --DDL
 --1.- Cambio en la estructura/esquema de la BD
@@ -221,17 +321,23 @@ BEGIN
     SET NOCOUNT ON;
     DECLARE @EventData XML = EVENTDATA();
 
-    INSERT INTO Auditoria.HistorialMovsEstructura (tipo_mov, nom_obj, tipo_obj, fecha, usuario)
-    VALUES (@EventData.value('(/EVENT_INSTANCE/EventType)[1]', 'NVARCHAR(50)'), -- Tipo de evento (ej. CREATE_TABLE)
-            @EventData.value('(/EVENT_INSTANCE/ObjectName)[1]', 'NVARCHAR(50)'), -- Nombre del objeto (ej. tabla)
-            @EventData.value('(/EVENT_INSTANCE/ObjectType)[1]', 'NVARCHAR(25)'), -- Tipo de objeto (ej. TABLE)
-            GETDATE(), -- Fecha y hora del evento
-            SUSER_NAME() -- Nombre del usuario que ejecutó la operación
-           );
+    BEGIN TRY
+        INSERT INTO BD_JAPAMA.Auditoria.HistorialMovsEstructura (tipo_mov, nom_obj, tipo_obj, fecha, usuario)
+        VALUES (@EventData.value('(/EVENT_INSTANCE/EventType)[1]', 'NVARCHAR(50)'), -- Tipo de evento (ej. CREATE_TABLE)
+                @EventData.value('(/EVENT_INSTANCE/ObjectName)[1]', 'NVARCHAR(50)'), -- Nombre del objeto (ej. tabla)
+                @EventData.value('(/EVENT_INSTANCE/ObjectType)[1]', 'NVARCHAR(25)'), -- Tipo de objeto (ej. TABLE)
+                GETDATE(), -- Fecha y hora del evento
+                SUSER_NAME() -- Nombre del usuario que ejecutó la operación
+               );
+    END TRY
+    BEGIN CATCH
+        RETURN;
+    END CATCH
+
 END;
 GO
 
-ENABLE TRIGGER TG_REGISTRO_MOVS ON DATABASE
+DISABLE TRIGGER TG_REGISTRO_MOVS ON DATABASE
 GO
 
 
@@ -265,11 +371,10 @@ BEGIN
                 RETURN;
             END CATCH
         END
-    END
+END
 GO
-
+-- PARA EVITAR MUCHOS PROBLEMAS
 DISABLE TRIGGER TR_RegistroAccesos ON ALL SERVER
 GO
-DROP TRIGGER TR_RegistroAccesos ON ALL SERVER
-GO
+
 
