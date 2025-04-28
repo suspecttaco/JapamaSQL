@@ -2,7 +2,7 @@ use BD_JAPAMA
 go
 
 CREATE TABLE Servicios.ReporteProblema (
-    ReporteId BIGINT PRIMARY KEY NOT NULL,
+    ReporteId BIGINT PRIMARY KEY NOT NULL  IDENTITY (1,1),
     CONSTRAINT ReporteId UNIQUE(ReporteId),
 
     ClienteId BIGINT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Servicios.ReporteProblema (
     fecha_mod DATE NOT NULL,
 );
 CREATE TABLE Servicios.SuspensionServicio (
-    SuspensionId BIGINT PRIMARY KEY NOT NULL,
+    SuspensionId BIGINT PRIMARY KEY NOT NULL  IDENTITY (1,1),
     CONSTRAINT SuspensionId UNIQUE(SuspensionId),
 
     actividad CHAR(1) NULL,
@@ -28,7 +28,7 @@ CREATE TABLE Servicios.SuspensionServicio (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Servicios.TipoServicio (
-    ServicioId BIGINT PRIMARY KEY NOT NULL,
+    ServicioId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT ServicioId UNIQUE(ServicioId),
 
     SuspensionId BIGINT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE Servicios.TipoServicio (
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Servicios.CartaNoAdeudos (
-    CartaId BIGINT PRIMARY KEY NOT NULL,
+    CartaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT CartaId UNIQUE(CartaId),
 
     ClienteId BIGINT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE Servicios.CartaNoAdeudos (
 );
 
 CREATE TABLE Servicios.ProgramaDescuento (
-    ProgramaId BIGINT PRIMARY KEY NOT NULL,
+    ProgramaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
     CONSTRAINT ProgramaId UNIQUE(ProgramaId),
 
     descricpion VARCHAR(50) NOT NULL,

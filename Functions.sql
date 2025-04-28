@@ -110,6 +110,7 @@ CREATE OR ALTER PROCEDURE RecursosHumanos.InsertarEmpleado
     @FechaContratacion DATETIME,
     @PuestoId SMALLINT,
     @TurnoId TINYINT,
+    @EstablecimientoID INT,
     -- Parámetros para Contrato
     @TipoContrato VARCHAR(3),
     @FechaVencimiento DATETIME,
@@ -165,9 +166,10 @@ BEGIN
 
         -- 7. Insertar Empleado
         INSERT INTO RecursosHumanos.Empleado (nss, rfc, ContratoId, PuestoId, edo_civil, fecha_nacimiento,
-                                              fecha_contratacion, fecha_mod, PersonaId, TurnoId, NominaId, actividad)
+                                              fecha_contratacion, fecha_mod, PersonaId, TurnoId, NominaId, actividad,
+                                              EstablecimientoId)
         VALUES (@NSS, @RFC, @ContratoId, @PuestoId, @EstadoCivil, @FechaNacimiento, @FechaContratacion, GETDATE(),
-                @PersonaId, @TurnoId, @NominaId, 'A');
+                @PersonaId, @TurnoId, @NominaId, 'A', @EstablecimientoID);
 
         COMMIT TRANSACTION;
     END TRY
@@ -356,7 +358,8 @@ CREATE OR ALTER PROCEDURE Servicios.InsertarReporteFalla @ClienteId BIGINT,
                                                          @Descripcion VARCHAR(50),
                                                          @EmpleadoId BIGINT,
                                                          @Seguimiento VARCHAR(50),
-                                                         @DepartamentoId BIGINT
+                                                         @DepartamentoId BIGINT,
+                                                         @Observaciones VARCHAR(50)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -364,26 +367,30 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        DECLARE @NuevoReporteId BIGINT;
-        SELECT @NuevoReporteId = ISNULL(MAX(ReporteId), 0) + 1
-        FROM Servicios.ReporteProblema;
+        DECLARE @DomicilioID BIGINT;
+        SET @DomicilioID = (SELECT p.DomicilioId
+                            FROM Clientes.Cliente c
+                                     JOIN Personas.Persona p ON c.PersonaId = p.PersonaId
+                            WHERE c.ClienteId = @ClienteId);
 
-        INSERT INTO Servicios.ReporteProblema (ReporteId,
-                                               ClienteId,
+        INSERT INTO Servicios.ReporteProblema (ClienteId,
                                                descripcion,
                                                fecha_reporte,
                                                EmpleadoId,
                                                seguimiento,
                                                DepartamentoId,
-                                               fecha_mod)
-        VALUES (@NuevoReporteId,
-                @ClienteId,
+                                               fecha_mod,
+                                               DomicilioId,
+                                               observaciones)
+        VALUES (@ClienteId,
                 @Descripcion,
                 GETDATE(),
                 @EmpleadoId,
                 @Seguimiento,
                 @DepartamentoId,
-                GETDATE());
+                GETDATE(),
+                @DomicilioID,
+                @Observaciones);
 
         COMMIT TRANSACTION;
     END TRY
