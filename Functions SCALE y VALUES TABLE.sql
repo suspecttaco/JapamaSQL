@@ -52,5 +52,30 @@ GO
 
 -- FUNCTION WITH VALUES TABLE
 -- 1.- Numero de  Empleados/contrato especifico
-
+CREATE FUNCTION RecursosHumanos.N_EmpleadoContrato () 
+RETURNS @ContratoEmpleado TABLE (
+	NtipoContrato INT ,
+	tipo_contrato CHAR(3) --SIN ->Sindicalizado CON->Confianza EVE->Eventuales
+) 
+AS
+BEGIN
+	INSERT @ContratoEmpleado
+		SELECT COUNT(*),RecursosHumanos.ContratoEmpleado.tipo_contrato
+		FROM RecursosHumanos.Empleado INNER JOIN RecursosHumanos.ContratoEmpleado
+		ON RecursosHumanos.Empleado.ContratoId = RecursosHumanos.ContratoEmpleado.ContratoId
+		GROUP BY RecursosHumanos.ContratoEmpleado.tipo_contrato
+	RETURN
+END
+GO
 -- 2.- Historial de asistencia detallado por periodo (fecha inicio -> fecha fin)
+CREATE FUNCTION RecursosHumanaos.AsistenciaPeriodo (@fecha_inicio DATETIME ,@fecha_fin DATETIME)
+RETURNS @AsistenciaPeriodo TABLE (
+	
+)
+AS
+BEGIN
+	INSERT @AsistenciaPeriodo
+
+	RETURN
+END
+GO
