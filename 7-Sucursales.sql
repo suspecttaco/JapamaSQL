@@ -3,7 +3,6 @@ go
 
 CREATE TABLE Sucursales.Departamento (
     DepartamentoId int PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT DepartamentoId UNIQUE(DepartamentoId),
     descripcion VARCHAR(50) NOT NULL,
     segmento_red VARCHAR(16) NOT NULL,
     fecha_mod DATE NOT NULL,
@@ -11,23 +10,19 @@ CREATE TABLE Sucursales.Departamento (
 
 CREATE TABLE Sucursales.Red (
     RedId INT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT RedId UNIQUE(RedId),
     compania_red VARCHAR(50) NOT NULL,
     segmento_red VARCHAR(16) NOT NULL,
-    ProveedorId INT NOT NULL,
     fecha_mod DATE NOT NULL,
 );
 
 CREATE TABLE Sucursales.TipoEstablecimiento (
     TipoEstablecimientId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT TipoEstablecimientoId UNIQUE(TipoEstablecimientId),
     nombre VARCHAR(50) NOT NULL,
     fecha_mod DATE NOT NULL,
 );
 
 CREATE TABLE Sucursales.Establecimiento (
     EstablecimientoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT EstablecimientoId UNIQUE(EstablecimientoId),
 
     nombre VARCHAR(50) NOT NULL,
     TipoEstablecimientoId BIGINT NOT NULL FOREIGN KEY REFERENCES Sucursales.TipoEstablecimiento (TipoEstablecimientId),
@@ -39,7 +34,6 @@ CREATE TABLE Sucursales.Establecimiento (
 
 CREATE TABLE Sucursales.CajeroAutomatico (
     CajeroId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT CajeroId UNIQUE(CajeroId),
 
     EstablecimientoId BIGINT NOT NULL FOREIGN KEY REFERENCES Sucursales.Establecimiento (EstablecimientoId),
     actividad CHAR(1) NOT NULL,

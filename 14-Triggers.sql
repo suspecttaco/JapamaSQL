@@ -161,6 +161,7 @@ END
 GO
 
 EXEC Auditoria.TR_BITACORA_MOD_ALL
+GO
 -- 3.- Bitacora modificaciones de inventario
 CREATE TABLE Auditoria.ModificacionInventario
 (
@@ -170,35 +171,48 @@ CREATE TABLE Auditoria.ModificacionInventario
     cantidad_nueva    INT                NOT NULL,
     fecha             DATE               NOT NULL
 )
+GO
 
-CREATE TRIGGER TR_Historial_Inventario
+CREATE OR ALTER TRIGGER TR_Historial_Inventario
     ON Inventarios.Inventario
     AFTER UPDATE
     AS
 BEGIN
     SET NOCOUNT ON;
 
-    INSERT INTO Auditoria.ModificacionInventario (ProductId, cantidad_anterior, cantidad_nueva, fecha)
-    VALUES (inserted.ProductoId, deleted.cantidad, inserted.cantidad, GETDATE())
+    -- Insertar registros del historial para todas las filas modificadas
+    INSERT INTO Auditoria.ModificacionInventario
+        (ProductId, cantidad_anterior, cantidad_nueva, fecha)
+    SELECT i.ProductoId,
+           d.cantidad,
+           i.cantidad,
+           GETDATE()
+    FROM inserted i
+             INNER JOIN deleted d ON i.ProductoId = d.ProductoId
+    WHERE i.cantidad <> d.cantidad; -- Solo registrar cuando la cantidad realmente cambió
 END
 GO
+
 -- 4.- Evitar que el sueldo ingresado sea menor al registrado
 
-CREATE TRIGGER TR_REGLA_SUELDOS
+CREATE OR ALTER TRIGGER TR_REGLA_SUELDOS
     ON RecursosHumanos.Puesto
     AFTER UPDATE AS
 BEGIN
     SET NOCOUNT ON;
+
     IF EXISTS(SELECT 1
-              FROM inserted
-                       JOIN deleted ON inserted.PuestoId = deleted.PuestoId
-              WHERE inserted.salario_base < deleted.salario_base)
+              FROM inserted i
+                       JOIN deleted d ON i.PuestoId = d.PuestoId
+              WHERE i.salario_base < d.salario_base)
         BEGIN
-            RAISERROR ('No se puede reducir el sueldo base',16,1);
-            SET inserted.salario_base = deleted.salario_base;
+            RAISERROR ('No se puede reducir el sueldo base', 16, 1);
+            ROLLBACK TRANSACTION;
+            RETURN;
         END
 END
 GO
+
 -- 5.- Bigtacora modificaciones en el sueldo a los puestos
 CREATE TABLE Auditoria.HistorialModSueldos
 (
@@ -336,10 +350,6 @@ BEGIN
 
 END;
 GO
-
-DISABLE TRIGGER TG_REGISTRO_MOVS ON DATABASE
-GO
-
 
 --LOG ON
 --1.- Historial de acceso a la BD

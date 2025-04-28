@@ -35,21 +35,9 @@ add constraint FK_Adeudo_Establecimiento
 foreign key (EstablecimientoId)
 references Sucursales.Establecimiento (EstablecimientoId)
 
---ReportesServicio a Cliente
-alter table Servicios.ReporteProblema
-add constraint FK_Reporte_Cliente
-foreign key (ClienteId)
-references Clientes.Cliente (ClienteId)
-
---Suspension a Cliente
-alter table Servicios.SuspensionServicio
-add constraint FK_Suspension_Cliente
-foreign key (ClienteId)
-references Clientes.Cliente (ClienteId)
-
---Carta a Cliente
-alter table Servicios.CartaNoAdeudos
-add constraint FK_Carta_Cliente
+--Ticket a Cliente
+alter table Servicios.TicketServicio
+add constraint FK_Ticket_Cliente
 foreign key (ClienteId)
 references Clientes.Cliente (ClienteId)
 
@@ -58,12 +46,6 @@ alter table Sucursales.Establecimiento
 add constraint FK_Establecimiento_Domicilio
 foreign key (DomicilioId)
 references Personas.Domicilio (DomicilioId)
-
---Red a Proveedor
-alter table Sucursales.Red
-add constraint FK_Red_Proveedor
-foreign key (ProveedorId)
-references Inventarios.Proveedor (ProveedorId)
 
 --Cajero a Banco
 alter table Sucursales.CajeroAutomatico
@@ -76,11 +58,6 @@ alter table RecursosHumanos.Empleado
 add constraint FK_Empleado_Persona
 foreign key (PersonaId)
 references Personas.Persona (PersonaId)
-
---ReportesProblema a Direccion
-ALTER TABLE Servicios.ReporteProblema ADD CONSTRAINT
-FK_DireccionId FOREIGN KEY (DomicilioId) REFERENCES Personas.Domicilio(DomicilioId);
-GO
 
 --Empleado a Establecimiento
 ALTER TABLE RecursosHumanos.Empleado ADD CONSTRAINT

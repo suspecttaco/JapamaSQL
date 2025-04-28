@@ -354,12 +354,26 @@ BEGIN
 END;
 GO
 -- 7.- Insertar Reporte falla servicio
-CREATE OR ALTER PROCEDURE Servicios.InsertarReporteFalla @ClienteId BIGINT,
-                                                         @Descripcion VARCHAR(50),
-                                                         @EmpleadoId BIGINT,
-                                                         @Seguimiento VARCHAR(50),
-                                                         @DepartamentoId BIGINT,
-                                                         @Observaciones VARCHAR(50)
+
+CREATE OR ALTER PROCEDURE Servicios.InsertarTicketSoporte
+    -- Parámetros para servicio general
+    @ClienteId BIGINT,
+    -- Parámetros específicos según el tipo de servicio
+    @TipoServicio CHAR(1), -- 'R' Reporte, 'S' Suspensión, 'C' Carta, 'P' Programa
+-- Parámetros para Reporte
+    @Descripcion VARCHAR(50),
+    @EmpleadoId BIGINT,
+    @Seguimiento VARCHAR(50),
+    @DepartamentoId BIGINT,
+    @Observaciones VARCHAR(50),
+    -- Parámetros para Suspensión
+    @Actividad CHAR(1),
+    @FechaSuspension DATE,
+    @EnlaceDocumentoSuspension VARCHAR(50),
+    -- Parámetros para Carta
+    @EnlaceDocumentoCarta VARCHAR(50),
+    -- Parámetros para Programa
+    @ProgramaDescuentoId BIGINT
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -367,40 +381,77 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        DECLARE @DomicilioID BIGINT;
-        SET @DomicilioID = (SELECT p.DomicilioId
-                            FROM Clientes.Cliente c
-                                     JOIN Personas.Persona p ON c.PersonaId = p.PersonaId
-                            WHERE c.ClienteId = @ClienteId);
+        -- Insertar el servicio según el tipo
+        IF @TipoServicio = 'R'
+            BEGIN
+                -- Insertar Reporte Problema
+                INSERT INTO Servicios.ReporteProblema
+                (descripcion, fecha_reporte, EmpleadoId, seguimiento, DepartamentoId, observaciones, fecha_mod)
+                VALUES (@Descripcion, GETDATE(), @EmpleadoId, @Seguimiento, @DepartamentoId, @Observaciones, GETDATE());
 
-        INSERT INTO Servicios.ReporteProblema (ClienteId,
-                                               descripcion,
-                                               fecha_reporte,
-                                               EmpleadoId,
-                                               seguimiento,
-                                               DepartamentoId,
-                                               fecha_mod,
-                                               DomicilioId,
-                                               observaciones)
-        VALUES (@ClienteId,
-                @Descripcion,
-                GETDATE(),
-                @EmpleadoId,
-                @Seguimiento,
-                @DepartamentoId,
-                GETDATE(),
-                @DomicilioID,
-                @Observaciones);
+                DECLARE @ReporteId BIGINT = SCOPE_IDENTITY();
 
+                -- Crear ticket con reporte
+                INSERT INTO Servicios.TicketServicio
+                (ClienteId, SuspensionId, ReporteProblema, ProgramaDescuento, CartaNoAdeudos, fecha_mod)
+                VALUES (@ClienteId, NULL, @ReporteId, NULL, NULL, GETDATE());
+            END
+
+        ELSE
+            IF @TipoServicio = 'S'
+                BEGIN
+                    -- Insertar Suspensión
+                    INSERT INTO Servicios.SuspensionServicio
+                        (actividad, descricpion, fecha_suspension, enlace_documento, fecha_mod)
+                    VALUES (@Actividad, @Descripcion, @FechaSuspension, @EnlaceDocumentoSuspension, GETDATE());
+
+                    DECLARE @SuspensionId BIGINT = SCOPE_IDENTITY();
+
+                    -- Crear ticket con suspensión
+                    INSERT INTO Servicios.TicketServicio
+                    (ClienteId, SuspensionId, ReporteProblema, ProgramaDescuento, CartaNoAdeudos, fecha_mod)
+                    VALUES (@ClienteId, @SuspensionId, NULL, NULL, NULL, GETDATE());
+                END
+
+            ELSE
+                IF @TipoServicio = 'C'
+                    BEGIN
+                        -- Insertar Carta
+                        INSERT INTO Servicios.CartaNoAdeudos
+                            (enlace_documento, fecha_mod)
+                        VALUES (@EnlaceDocumentoCarta, GETDATE());
+
+                        DECLARE @CartaId BIGINT = SCOPE_IDENTITY();
+
+                        -- Crear ticket con carta
+                        INSERT INTO Servicios.TicketServicio
+                        (ClienteId, SuspensionId, ReporteProblema, ProgramaDescuento, CartaNoAdeudos, fecha_mod)
+                        VALUES (@ClienteId, NULL, NULL, NULL, @CartaId, GETDATE());
+                    END
+
+                ELSE
+                    IF @TipoServicio = 'P'
+                        BEGIN
+                            -- Crear ticket con programa de descuento
+                            INSERT INTO Servicios.TicketServicio
+                            (ClienteId, SuspensionId, ReporteProblema, ProgramaDescuento, CartaNoAdeudos, fecha_mod)
+                            VALUES (@ClienteId, NULL, NULL, @ProgramaDescuentoId, NULL, GETDATE());
+                        END
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
         IF @@TRANCOUNT > 0
             ROLLBACK TRANSACTION;
-        THROW;
+
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
 GO
+
 -- 8.- Insertar Adeudo
 CREATE OR ALTER PROCEDURE Clientes.InsertarAdeudoConConsumo
     -- Parámetros para Consumo

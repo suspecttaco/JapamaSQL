@@ -3,7 +3,7 @@ go
 
 CREATE TABLE Clientes.Cliente (
     ClienteId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT ClienteId UNIQUE(ClienteId),
+
 
     PersonaId BIGINT NOT NULL,
     --CONSTRAINT FK_PersonaId FOREIGN KEy (PersonaId) REFERENCES Personas.Persona(PersonaId),
@@ -19,7 +19,6 @@ CREATE TABLE Clientes.Cliente (
 );
 CREATE TABLE Clientes.Contrato (
     ContratoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT ContratoId UNIQUE(ContratoId),
 
     fecha_contrato DATE NOT NULL,
     
@@ -34,8 +33,6 @@ CREATE TABLE Clientes.Contrato (
 );
 CREATE TABLE Clientes.TipoTarifa (
     TipoTarifaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT TipoTarifaId UNIQUE(TipoTarifaId),
-
     nombre VARCHAR(50) NOT NULL,
 
     TarifaId BIGINT NOT NULL,
@@ -46,7 +43,6 @@ CREATE TABLE Clientes.TipoTarifa (
 );
 CREATE TABLE Clientes.Tarifa(
     TarifaId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT TarifaId UNIQUE(TarifaId),
 
     precio_base MONEY NOT NULL,
     base_agua MONEY NOT NULL,
@@ -57,7 +53,6 @@ CREATE TABLE Clientes.Tarifa(
 );
 CREATE TABLE Clientes.Adeudos (
     AdeudoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT AdeudoId UNIQUE(AdeudoId),
 
     EstablecimientoId BIGINT NOT NULL,
     ClienteId BIGINT NOT NULL,
@@ -71,7 +66,6 @@ CREATE TABLE Clientes.Adeudos (
 );
 CREATE TABLE Clientes.Consumo (
     ConsumoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    CONSTRAINT ConsumoId UNIQUE(ConsumoId),
 
     lectura_anterior MONEY NOT NULL,
     lectura_actual MONEY NOT NULL,
