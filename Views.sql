@@ -135,7 +135,7 @@ FROM Sucursales.Establecimiento suc
 	INNER JOIN Personas.Domicilio dom ON suc.DomicilioId = dom.DomicilioId
 	INNER JOIN Sucursales.Departamento dpa ON suc.DepartamentoId = dpa.DepartamentoId
 GO
---8.-Lista empleados (tipo de contrato)
+--8 - 10.-Lista empleados (tipo de contrato) *3
 CREATE VIEW RecursosHumanos.V8_EmpleadosSindicato AS SELECT
 	emp.EmpleadoId,
 	emp.PersonaId,
@@ -204,12 +204,97 @@ FROM RecursosHumanos.Empleado emp
 	INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
 WHERE ctemp.tipo_contrato = 'EVE';
 GO
---9.-Lista empledos sindicato
-
---10.-Lista clientes cartaNoAdeudos
-
---11.-Lista clientes suspension (info solicitud)
-
---12.-Lista vehiculos (por sucursal)
-
---13 - 15.-Lista empleados (por turno especifico) *3 (solo activos)
+--11.-Lista clientes cartaNoAdeudos
+CREATE VIEW Servicios.V11_ListaClientesCartaNoAdeudos AS SELECT
+	cli.ClienteId,
+	cli.ContratoId,
+	cli.PersonaId,
+	crt.CartaId,
+	crt.fecha_mod,
+	sser.fecha_suspension,
+	sser.actividad
+FROM Servicios.TipoServicio tser
+	INNER JOIN Servicios.CartaNoAdeudos crt ON tser.CartaNoAdeudos = crt.CartaId
+	INNER JOIN Servicios.SuspensionServicio sser ON tser.SuspensionId = sser.SuspensionId
+	INNER JOIN Clientes.Cliente cli ON sser.ClienteId = cli.ClienteId
+GO
+--12.-Lista clientes suspension (info solicitud)
+CREATE VIEW Servicios.V12_ListaClientesSuspension AS SELECT
+	cli.ClienteId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre AS Persona,
+	per.NumeroTelId,
+	per.EmailId,
+	sser.descricpion AS SuspensionServicio,
+	sser.SuspensionId,
+	sser.fecha_suspension,
+	ctr.ContratoId,
+	ctr.fecha_contrato,
+	ctr.medidor
+FROM Servicios.SuspensionServicio sser
+	INNER JOIN Clientes.Cliente cli ON sser.ClienteId = cli.ClienteId
+	INNER JOIN Clientes.Contrato ctr ON cli.ContratoId = ctr.ContratoId
+	INNER JOIN Personas.Persona per ON cli.PersonaId = per.PersonaId
+GO
+--13.-Lista vehiculos (por sucursal)
+CREATE VIEW Inventarios.V13_ListaVehiculosSucursal AS SELECT
+	veh.VehiculoId,
+	veh.TipoVehiculoId,
+	veh.matricula,
+	tveh.nombre,
+	veh.actividad,
+	veh.EstablecimientoId,
+	veh.fecha_mod,
+	suc.TipoEstablecimientoId,
+	suc.DomicilioId
+FROM Inventarios.Vehiculo veh
+	INNER JOIN Sucursales.Establecimiento suc ON veh.EstablecimientoId = suc.EstablecimientoId
+	INNER JOIN Inventarios.TipoVehiculo tveh ON veh.TipoVehiculoId = tveh.TipoVehiculoId
+GO
+--14 - 16.-Lista empleados (por turno especifico) *3 (solo activos)
+CREATE VIEW RecursosHumanos.V14_ListaEmpleadoMatutino AS SELECT
+	emp.EmpleadoId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre AS Persona,
+	emp.TurnoId,
+	etrn.tipo,
+	etrn.duracion,
+	etrn.hora_entrada,
+	etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+	INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'MAT';
+GO
+CREATE VIEW RecursosHumanos.V15_ListaEmpleadoVespertino AS SELECT
+	emp.EmpleadoId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre AS Persona,
+	emp.TurnoId,
+	etrn.tipo,
+	etrn.duracion,
+	etrn.hora_entrada,
+	etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+	INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'VES';
+GO
+CREATE VIEW RecursosHumanos.V16_ListaEmpleadoNocturno AS SELECT
+	emp.EmpleadoId,
+	per.apellido1,
+	per.apellido2,
+	per.nombre AS Persona,
+	emp.TurnoId,
+	etrn.tipo,
+	etrn.duracion,
+	etrn.hora_entrada,
+	etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+	INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+	INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'NOC';
+GO

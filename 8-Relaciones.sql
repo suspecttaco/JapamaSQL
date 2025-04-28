@@ -86,3 +86,8 @@ GO
 ALTER TABLE RecursosHumanos.Empleado ADD CONSTRAINT
 FK_EstablecimientoId FOREIGN KEY (EstablecimientoId) REFERENCES Sucursales.Establecimiento(EstablecimientoId);
 GO
+
+--Vehiculo a Establecimiento
+ALTER TABLE Inventarios.Vehiculo ADD CONSTRAINT
+FK_EstablecimientoId FOREIGN KEY (EstablecimientoId) REFERENCES Sucursales.Establecimiento(EstablecimientoId);
+GO

@@ -4,7 +4,7 @@ go
 CREATE TABLE [RecursosHumanos].[PuestoSindicato]
 (
     [PuestoSindicatoId] smallint NOT NULL primary key identity (1,1),
-    [nombre] varchar(50) NOT NULL,
+    [nombre] char(50) NOT NULL,
     [estatus] varchar(1) NOT NULL,
     [fecha_mod] datetime NOT NULL
 )
@@ -12,7 +12,7 @@ CREATE TABLE [RecursosHumanos].[PuestoSindicato]
 CREATE TABLE [RecursosHumanos].[Turno]
 (
     [TurnoId] tinyint NOT NULL primary key identity (1,1),
-    [tipo] varchar(50) NOT NULL,
+    [tipo] char(3) NOT NULL, -- MAT ->Matutino , VES ->Vespertino , NOC ->Nocturno 
     [duracion] tinyint NOT NULL,
     [hora_entrada] time(0) NOT NULL,
     [hora_salida] time(0) NOT NULL,
