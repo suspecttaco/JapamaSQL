@@ -70,7 +70,7 @@ JOIN Personas.Persona pe ON pr.PersonaId = pe.PersonaId
 WHERE c.fecha_compra >= '2024-03-01'
 GROUP BY pe.nombre;
 
--- 11. Listar clientes con programa de descuento
+-- 11. Listar clientes con programa de descuento <----------------------------- pendiente
 SELECT p.nombre, p.apellido1, pd.descricpion, pd.porcentaje_aplicado
 FROM Servicios.TicketServicio ts
 JOIN Clientes.Cliente c ON ts.ClienteId = c.ClienteId
