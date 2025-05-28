@@ -356,24 +356,24 @@ VALUES ('Reconexión', 500.00, GETDATE()),
        ('Verificación medidor', 300.00, GETDATE());
 
 -- Insertamos consumos para cada cliente (3 meses)
-INSERT INTO Clientes.Consumo (lectura_anterior, lectura_actual, consumo_m3, facturado_m3, periodo_lectura, fecha_mod)
+INSERT INTO Clientes.Consumo (lectura_anterior, lectura_actual, consumo_m3, facturado_m3, periodo_lectura, costo_saneamiento, costo_drenaje, fecha_mod)
 VALUES
 -- Clientes domésticos (consumos menores)
-(0, 8, 8, 150.00, '2024-01-31', GETDATE()),
-(8, 15, 7, 140.00, '2024-02-29', GETDATE()),
-(15, 24, 9, 170.00, '2024-03-31', GETDATE()),
-(0, 9, 9, 160.00, '2024-01-31', GETDATE()),
-(9, 18, 9, 160.00, '2024-02-29', GETDATE()),
-(18, 26, 8, 150.00, '2024-03-31', GETDATE()),
-(0, 7, 7, 140.00, '2024-01-31', GETDATE()),
-(7, 16, 9, 170.00, '2024-02-29', GETDATE()),
-(16, 25, 9, 170.00, '2024-03-31', GETDATE()),
-(0, 10, 10, 180.00, '2024-01-31', GETDATE()),
-(10, 19, 9, 170.00, '2024-02-29', GETDATE()),
-(19, 28, 9, 170.00, '2024-03-31', GETDATE()),
-(0, 8, 8, 150.00, '2024-01-31', GETDATE()),
-(8, 17, 9, 170.00, '2024-02-29', GETDATE()),
-(17, 25, 8, 150.00, '2024-03-31', GETDATE()),
+(0, 8, 8, 150.00, '2024-01-31',10, 30, GETDATE()),
+(8, 15, 7, 140.00, '2024-02-29',8, 25, GETDATE()),
+(15, 24, 9, 170.00, '2024-03-31', 12, 32, GETDATE()),
+(0, 9, 9, 160.00, '2024-01-31',15, 21, GETDATE()),
+(9, 18, 9, 160.00, '2024-02-29', 12, 27, GETDATE()),
+(18, 26, 8, 150.00, '2024-03-31', 13, 27, GETDATE()),
+(0, 7, 7, 140.00, '2024-01-31', 14, 26, GETDATE()),
+(7, 16, 9, 170.00, '2024-02-29', 15, 28, GETDATE()),
+(16, 25, 9, 170.00, '2024-03-31', 11, 22, GETDATE()),
+(0, 10, 10, 180.00, '2024-01-31', 13, 25, GETDATE()),
+(10, 19, 9, 170.00, '2024-02-29', 17, 24, GETDATE()),
+(19, 28, 9, 170.00, '2024-03-31',15, 22, GETDATE()),
+(0, 8, 8, 150.00, '2024-01-31', 17, 28, GETDATE()),
+(8, 17, 9, 170.00, '2024-02-29',12, 26, GETDATE()),
+(17, 25, 8, 150.00, '2024-03-31', 17, 21, GETDATE()),
 
 -- Clientes comerciales (consumos mayores)
 (0, 25, 25, 450.00, '2024-01-31', GETDATE()),

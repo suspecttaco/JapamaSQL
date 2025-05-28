@@ -67,11 +67,13 @@ CREATE TABLE Clientes.Adeudos (
 CREATE TABLE Clientes.Consumo (
     ConsumoId BIGINT PRIMARY KEY NOT NULL IDENTITY (1,1),
 
-    lectura_anterior MONEY NOT NULL,
-    lectura_actual MONEY NOT NULL,
+    lectura_anterior INT NOT NULL,
+    lectura_actual INT NOT NULL,
     consumo_m3 INT NOT NULL,
     facturado_m3 MONEY NOT NULL,
     periodo_lectura DATE NOT NULL,
+    costo_saneamiento INT NOT NULL,
+    costo_drenaje INT NOT NULL,
     fecha_mod DATE NOT NULL
 );
 CREATE TABLE Clientes.CargoServicio (
