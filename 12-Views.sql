@@ -1,9 +1,4 @@
 /*
-====================================================================
-    VISTAS DEL SISTEMA - SAPWS
-====================================================================
-    Autor: DB Admin Team
-    Fecha: 2025-05-30
     
 Este script contiene todas las vistas (views) del sistema organizadas 
 por módulos:

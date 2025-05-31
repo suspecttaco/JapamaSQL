@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [BD_JAPAMA]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Database [BD_JAPAMA]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE DATABASE [BD_JAPAMA]
     CONTAINMENT = NONE
     ON  PRIMARY
@@ -82,34 +82,34 @@ ALTER DATABASE [BD_JAPAMA] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP
 GO
 USE [BD_JAPAMA]
 GO
-/****** Object:  Schema [Auditoria]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Auditoria]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Auditoria]
 GO
-/****** Object:  Schema [Clientes]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Clientes]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Clientes]
 GO
-/****** Object:  Schema [Inventarios]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Inventarios]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Inventarios]
 GO
-/****** Object:  Schema [Personas]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Personas]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Personas]
 GO
-/****** Object:  Schema [RecursosHumanos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [RecursosHumanos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [RecursosHumanos]
 GO
-/****** Object:  Schema [Servicios]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Servicios]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Servicios]
 GO
-/****** Object:  Schema [Sucursales]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Schema [Sucursales]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SCHEMA [Sucursales]
 GO
-/****** Object:  Synonym [Clientes].[Usuarios]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Synonym [Clientes].[Usuarios]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SYNONYM [Clientes].[Usuarios] FOR [Clientes].[Cliente]
 GO
-/****** Object:  Synonym [RecursosHumanos].[Trabajadores]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Synonym [RecursosHumanos].[Trabajadores]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE SYNONYM [RecursosHumanos].[Trabajadores] FOR [RecursosHumanos].[Empleado]
 GO
-/****** Object:  UserDefinedFunction [Clientes].[FC_TotalUsuariosActivos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [Clientes].[FC_TotalUsuariosActivos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ BEGIN
     RETURN @TotalActivos
 END
 GO
-/****** Object:  UserDefinedFunction [Personas].[FC_TotalPersonaFisicaMoral]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [Personas].[FC_TotalPersonaFisicaMoral]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -139,7 +139,7 @@ BEGIN
     RETURN @TotalPersona
 END
 GO
-/****** Object:  UserDefinedFunction [RecursosHumanos].[AsistenciaPeriodo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [RecursosHumanos].[AsistenciaPeriodo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -174,7 +174,7 @@ BEGIN
     RETURN
 END
 GO
-/****** Object:  UserDefinedFunction [RecursosHumanos].[FC_TotalAsistenciasEmpleados]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [RecursosHumanos].[FC_TotalAsistenciasEmpleados]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -190,7 +190,7 @@ BEGIN
     RETURN @Asistencias
 END
 GO
-/****** Object:  UserDefinedFunction [RecursosHumanos].[FC_TotalRetardosEmp]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [RecursosHumanos].[FC_TotalRetardosEmp]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -215,7 +215,7 @@ BEGIN
     RETURN @TotalRetardos
 END
 GO
-/****** Object:  UserDefinedFunction [RecursosHumanos].[N_EmpleadoContrato]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  UserDefinedFunction [RecursosHumanos].[N_EmpleadoContrato]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -237,25 +237,7 @@ BEGIN
     RETURN
 END
 GO
-/****** Object:  Table [Inventarios].[Vehiculo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[Vehiculo](
-                                         [VehiculoId] [int] IDENTITY(1,1) NOT NULL,
-                                         [TipoVehiculoId] [int] NULL,
-                                         [matricula] [varchar](20) NOT NULL,
-                                         [actividad] [varchar](1) NOT NULL,
-                                         [EstablecimientoId] [bigint] NULL,
-                                         [fecha_mod] [datetime] NOT NULL,
-                                         PRIMARY KEY CLUSTERED
-                                             (
-                                              [VehiculoId] ASC
-                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Sucursales].[Establecimiento]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Sucursales].[Establecimiento]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -274,60 +256,7 @@ CREATE TABLE [Sucursales].[Establecimiento](
                                                        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[TipoVehiculo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[TipoVehiculo](
-                                             [TipoVehiculoId] [int] IDENTITY(1,1) NOT NULL,
-                                             [nombre] [varchar](50) NOT NULL,
-                                             [fecha_mod] [datetime] NOT NULL,
-                                             PRIMARY KEY CLUSTERED
-                                                 (
-                                                  [TipoVehiculoId] ASC
-                                                     )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Inventarios].[V13_ListaVehiculosSucursal]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---13.-Lista vehiculos (por sucursal)
-CREATE VIEW [Inventarios].[V13_ListaVehiculosSucursal] AS
-SELECT veh.VehiculoId,
-       veh.TipoVehiculoId,
-       veh.matricula,
-       tveh.nombre,
-       veh.actividad,
-       veh.EstablecimientoId,
-       veh.fecha_mod,
-       suc.TipoEstablecimientoId,
-       suc.DomicilioId
-FROM Inventarios.Vehiculo veh
-         INNER JOIN Sucursales.Establecimiento suc ON veh.EstablecimientoId = suc.EstablecimientoId
-         INNER JOIN Inventarios.TipoVehiculo tveh ON veh.TipoVehiculoId = tveh.TipoVehiculoId
-GO
-/****** Object:  Table [RecursosHumanos].[Turno]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [RecursosHumanos].[Turno](
-                                          [TurnoId] [tinyint] IDENTITY(1,1) NOT NULL,
-                                          [tipo] [char](3) NOT NULL,
-                                          [duracion] [tinyint] NOT NULL,
-                                          [hora_entrada] [time](0) NOT NULL,
-                                          [hora_salida] [time](0) NOT NULL,
-                                          [fecha_mod] [datetime] NOT NULL,
-                                          PRIMARY KEY CLUSTERED
-                                              (
-                                               [TurnoId] ASC
-                                                  )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Personas].[Persona]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[Persona]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -348,7 +277,7 @@ CREATE TABLE [Personas].[Persona](
                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[Empleado]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[Empleado]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -374,68 +303,7 @@ CREATE TABLE [RecursosHumanos].[Empleado](
                                                      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [RecursosHumanos].[V14_ListaEmpleadoMatutino]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---14 - 16.-Lista empleados (por turno especifico) *3 (solo activos)
-CREATE VIEW [RecursosHumanos].[V14_ListaEmpleadoMatutino] AS
-SELECT emp.EmpleadoId,
-       per.apellido1,
-       per.apellido2,
-       per.nombre AS Persona,
-       emp.TurnoId,
-       etrn.tipo,
-       etrn.duracion,
-       etrn.hora_entrada,
-       etrn.hora_salida
-FROM RecursosHumanos.Empleado emp
-         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
-         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
-WHERE etrn.tipo = 'MAT'
-GO
-/****** Object:  View [RecursosHumanos].[V15_ListaEmpleadoVespertino]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE VIEW [RecursosHumanos].[V15_ListaEmpleadoVespertino] AS
-SELECT emp.EmpleadoId,
-       per.apellido1,
-       per.apellido2,
-       per.nombre AS Persona,
-       emp.TurnoId,
-       etrn.tipo,
-       etrn.duracion,
-       etrn.hora_entrada,
-       etrn.hora_salida
-FROM RecursosHumanos.Empleado emp
-         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
-         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
-WHERE etrn.tipo = 'VES'
-GO
-/****** Object:  View [RecursosHumanos].[V16_ListaEmpleadoNocturno]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE VIEW [RecursosHumanos].[V16_ListaEmpleadoNocturno] AS
-SELECT emp.EmpleadoId,
-       per.apellido1,
-       per.apellido2,
-       per.nombre AS Persona,
-       emp.TurnoId,
-       etrn.tipo,
-       etrn.duracion,
-       etrn.hora_entrada,
-       etrn.hora_salida
-FROM RecursosHumanos.Empleado emp
-         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
-         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
-WHERE etrn.tipo = 'NOC'
-GO
-/****** Object:  Table [RecursosHumanos].[ContratoEmpleado]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[ContratoEmpleado]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -453,370 +321,7 @@ CREATE TABLE [RecursosHumanos].[ContratoEmpleado](
                                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Sucursales].[Departamento]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Sucursales].[Departamento](
-                                            [DepartamentoId] [int] IDENTITY(1,1) NOT NULL,
-                                            [descripcion] [varchar](50) NOT NULL,
-                                            [segmento_red] [varchar](16) NOT NULL,
-                                            [fecha_mod] [date] NOT NULL,
-                                            PRIMARY KEY CLUSTERED
-                                                (
-                                                 [DepartamentoId] ASC
-                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [RecursosHumanos].[V1_ListaEmpleadosActivos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---1.-Lista empleados Activos
-CREATE VIEW [RecursosHumanos].[V1_ListaEmpleadosActivos] AS
-SELECT e.EmpleadoId,
-       e.ContratoId,
-       e.PuestoId,
-       e.fecha_contratacion,
-       e.TurnoId,
-       e.rfc,
-       d.DepartamentoId,
-       c.tipo_contrato
-FROM RecursosHumanos.Empleado e
-         INNER JOIN Personas.Persona p ON e.PersonaId = p.PersonaId
-         INNER JOIN Sucursales.Departamento d ON e.ContratoId = d.DepartamentoId
-         INNER JOIN RecursosHumanos.ContratoEmpleado c ON e.ContratoId = c.ContratoId
-WHERE e.Actividad = 'A'
-GO
-/****** Object:  Table [Clientes].[Cliente]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Clientes].[Cliente](
-                                     [ClienteId] [bigint] IDENTITY(1,1) NOT NULL,
-                                     [PersonaId] [bigint] NOT NULL,
-                                     [fecha_corte] [date] NOT NULL,
-                                     [ContratoId] [bigint] NOT NULL,
-                                     [actividad] [char](1) NULL,
-                                     [fecha_mod] [date] NOT NULL,
-                                     PRIMARY KEY CLUSTERED
-                                         (
-                                          [ClienteId] ASC
-                                             )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Clientes].[V2_ListaClientes]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---2.-Lista clientes Activos
-CREATE VIEW [Clientes].[V2_ListaClientes] AS
-SELECT c.ClienteId,
-       p.PersonaId,
-       p.apellido1,
-       p.apellido2,
-       p.nombre,
-       p.tipo_persona,
-       c.ContratoId
-FROM Clientes.Cliente c
-         INNER JOIN Personas.Persona p ON c.PersonaId = p.PersonaId
-GO
-/****** Object:  Table [Servicios].[SuspensionServicio]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Servicios].[SuspensionServicio](
-                                                 [SuspensionId] [bigint] IDENTITY(1,1) NOT NULL,
-                                                 [actividad] [char](1) NULL,
-                                                 [descricpion] [varchar](50) NOT NULL,
-                                                 [fecha_suspension] [date] NOT NULL,
-                                                 [enlace_documento] [varchar](50) NOT NULL,
-                                                 [fecha_mod] [date] NOT NULL,
-                                                 PRIMARY KEY CLUSTERED
-                                                     (
-                                                      [SuspensionId] ASC
-                                                         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Servicios].[TicketServicio]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Servicios].[TicketServicio](
-                                             [ServicioId] [bigint] IDENTITY(1,1) NOT NULL,
-                                             [ClienteId] [bigint] NOT NULL,
-                                             [SuspensionId] [bigint] NULL,
-                                             [ReporteProblema] [bigint] NULL,
-                                             [ProgramaDescuento] [bigint] NULL,
-                                             [CartaNoAdeudos] [bigint] NULL,
-                                             [fecha_mod] [date] NOT NULL,
-                                             PRIMARY KEY CLUSTERED
-                                                 (
-                                                  [ServicioId] ASC
-                                                     )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Clientes].[Contrato]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Clientes].[Contrato](
-                                      [ContratoId] [bigint] IDENTITY(1,1) NOT NULL,
-                                      [fecha_contrato] [date] NOT NULL,
-                                      [enlace_documento] [varchar](50) NOT NULL,
-                                      [TipoTarifaId] [bigint] NOT NULL,
-                                      [medidor] [varchar](12) NOT NULL,
-                                      [fecha_mod] [date] NOT NULL,
-                                      PRIMARY KEY CLUSTERED
-                                          (
-                                           [ContratoId] ASC
-                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Servicios].[V3_ContratosActivos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---3.-Contratos activos
-CREATE VIEW [Servicios].[V3_ContratosActivos] AS
-SELECT ts.ClienteId,
-       cl.PersonaId,
-       cl.ContratoId,
-       cnt.TipoTarifaId,
-       ss.actividad,
-       cl.fecha_corte,
-       ss.fecha_suspension,
-       cnt.fecha_contrato,
-       cnt.medidor
-FROM Servicios.TicketServicio ts
-         INNER JOIN Servicios.SuspensionServicio ss ON ts.SuspensionId = ss.SuspensionId
-         INNER JOIN Clientes.Cliente cl ON ts.ClienteId = cl.ClienteId
-         INNER JOIN Clientes.Contrato cnt ON ts.ClienteId = cnt.ContratoId
-WHERE ss.actividad IS NULL
-GO
-/****** Object:  Table [Inventarios].[Material]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[Material](
-                                         [MaterialId] [int] IDENTITY(1,1) NOT NULL,
-                                         [nombre] [varchar](50) NOT NULL,
-                                         [descripcion] [varchar](50) NULL,
-                                         [actividad] [varchar](1) NOT NULL,
-                                         [TipoMaterialId] [int] NULL,
-                                         [fecha_mod] [datetime] NOT NULL,
-                                         PRIMARY KEY CLUSTERED
-                                             (
-                                              [MaterialId] ASC
-                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Inventarios].[Mobiliario]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[Mobiliario](
-                                           [MobiliarioId] [int] IDENTITY(1,1) NOT NULL,
-                                           [nombre] [varchar](50) NOT NULL,
-                                           [descripcion] [varchar](50) NOT NULL,
-                                           [actividad] [varchar](1) NOT NULL,
-                                           [TipoMobiliarioId] [int] NULL,
-                                           [fecha_mod] [datetime] NOT NULL,
-                                           PRIMARY KEY CLUSTERED
-                                               (
-                                                [MobiliarioId] ASC
-                                                   )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Inventarios].[Inventario]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[Inventario](
-                                           [ProductoId] [int] IDENTITY(1,1) NOT NULL,
-                                           [MaterialId] [int] NULL,
-                                           [MobiliarioId] [int] NULL,
-                                           [VehiculoId] [int] NULL,
-                                           [cantidad] [int] NOT NULL,
-                                           [fecha_mod] [datetime] NOT NULL,
-                                           PRIMARY KEY CLUSTERED
-                                               (
-                                                [ProductoId] ASC
-                                                   )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Inventarios].[V4_ListaInventarioActual]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---4.-Lista inventario actual
-CREATE VIEW [Inventarios].[V4_ListaInventarioActual] AS
-SELECT inv.ProductoId,
-       inv.MaterialId,
-       inv.MobiliarioId,
-       inv.VehiculoId,
-       mat.TipoMaterialId,
-       mat.descripcion AS Material,
-       mat.actividad   AS mat,
-       mob.TipoMobiliarioId,
-       mob.descripcion AS Mobiliario,
-       mob.actividad   AS mob,
-       veh.TipoVehiculoId,
-       veh.matricula,
-       veh.EstablecimientoId,
-       veh.actividad   AS veh
-FROM Inventarios.Inventario inv
-         INNER JOIN Inventarios.Material mat ON inv.MaterialId = mat.MaterialId
-         INNER JOIN Inventarios.Mobiliario mob ON inv.MobiliarioId = mob.MobiliarioId
-         INNER JOIN Inventarios.Vehiculo veh ON inv.VehiculoId = veh.VehiculoId
-GO
-/****** Object:  Table [Inventarios].[Proveedor]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Inventarios].[Proveedor](
-                                          [ProveedorId] [int] IDENTITY(1,1) NOT NULL,
-                                          [PersonaId] [bigint] NULL,
-                                          [fecha_mod] [datetime] NOT NULL,
-                                          PRIMARY KEY CLUSTERED
-                                              (
-                                               [ProveedorId] ASC
-                                                  )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Inventarios].[V5_ListaProveedores]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---5.-Lista proveedores
-CREATE VIEW [Inventarios].[V5_ListaProveedores] AS
-SELECT pro.ProveedorId,
-       pro.PersonaId,
-       per.apellido1,
-       per.apellido2,
-       per.nombre,
-       per.tipo_persona,
-       per.NumeroTelId,
-       per.EmailId
-FROM Inventarios.Proveedor pro
-         INNER JOIN Personas.Persona per ON pro.PersonaId = per.PersonaId
-GO
-/****** Object:  Table [Personas].[Domicilio]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Personas].[Domicilio](
-                                       [DomicilioId] [bigint] IDENTITY(1,1) NOT NULL,
-                                       [domicilio_linea1] [varchar](100) NOT NULL,
-                                       [domicilio_linea2] [varchar](100) NULL,
-                                       [cod_postal] [varchar](5) NOT NULL,
-                                       [LocalidadId] [int] NOT NULL,
-                                       [TipoDomicilioId] [int] NOT NULL,
-                                       [fecha_mod] [datetime] NOT NULL,
-                                       PRIMARY KEY CLUSTERED
-                                           (
-                                            [DomicilioId] ASC
-                                               )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [Servicios].[ReporteProblema]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Servicios].[ReporteProblema](
-                                              [ReporteId] [bigint] IDENTITY(1,1) NOT NULL,
-                                              [descripcion] [varchar](50) NOT NULL,
-                                              [fecha_reporte] [date] NOT NULL,
-                                              [EmpleadoId] [bigint] NOT NULL,
-                                              [seguimiento] [varchar](50) NOT NULL,
-                                              [DepartamentoId] [bigint] NOT NULL,
-                                              [observaciones] [varchar](50) NULL,
-                                              [fecha_mod] [date] NOT NULL,
-                                              PRIMARY KEY CLUSTERED
-                                                  (
-                                                   [ReporteId] ASC
-                                                      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Servicios].[V6_ListaReportes]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---6.-Historial reportes (cliente y donde fue)
-CREATE VIEW [Servicios].[V6_ListaReportes] AS
-SELECT --cliente y donde fue
-       rp.ReporteId,
-       ticket.ClienteId,
-       rp.descripcion,
-       rp.DepartamentoId,
-       rp.fecha_reporte,
-       dom.DomicilioId,
-       dom.LocalidadId,
-       dom.domicilio_linea1,
-       dom.domicilio_linea2,
-       dom.cod_postal
-FROM Servicios.TicketServicio ticket
-         INNER JOIN Servicios.ReporteProblema AS rp ON ticket.ReporteProblema = rp.ReporteId
-         INNER JOIN Clientes.Cliente cli ON ticket.ClienteId = cli.ClienteId
-         INNER JOIN Sucursales.Departamento dpa ON rp.DepartamentoId = dpa.DepartamentoId
-         INNER JOIN Personas.Domicilio dom ON cli.ClienteId = dom.DomicilioId
-GO
-/****** Object:  Table [Sucursales].[TipoEstablecimiento]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [Sucursales].[TipoEstablecimiento](
-                                                   [TipoEstablecimientId] [bigint] IDENTITY(1,1) NOT NULL,
-                                                   [nombre] [varchar](50) NOT NULL,
-                                                   [fecha_mod] [date] NOT NULL,
-                                                   PRIMARY KEY CLUSTERED
-                                                       (
-                                                        [TipoEstablecimientId] ASC
-                                                           )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  View [Sucursales].[V7_ListaSucursaleTipo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---7.-Lista sucursales (por tipo)
-CREATE VIEW [Sucursales].[V7_ListaSucursaleTipo] AS
-SELECT suc.EstablecimientoId,
-       suc.nombre  AS Establecimiento,
-       suc.TipoEstablecimientoId,
-       tsuc.nombre AS TipoEstablecimiento,
-       dom.DomicilioId,
-       dom.LocalidadId,
-       dom.domicilio_linea1,
-       dom.domicilio_linea2,
-       dom.cod_postal,
-       dpa.DepartamentoId,
-       dpa.descripcion
-FROM Sucursales.Establecimiento suc
-         INNER JOIN Sucursales.TipoEstablecimiento tsuc ON suc.TipoEstablecimientoId = tsuc.TipoEstablecimientId
-         INNER JOIN Personas.Domicilio dom ON suc.DomicilioId = dom.DomicilioId
-         INNER JOIN Sucursales.Departamento dpa ON suc.DepartamentoId = dpa.DepartamentoId
-GO
-/****** Object:  Table [RecursosHumanos].[Puesto]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[Puesto]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -833,7 +338,7 @@ CREATE TABLE [RecursosHumanos].[Puesto](
                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [RecursosHumanos].[V8_EmpleadosSindicato]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  View [RecursosHumanos].[V8_EmpleadosSindicato]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -861,7 +366,7 @@ FROM RecursosHumanos.Empleado emp
          INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
 WHERE ctemp.tipo_contrato = 'SIN'
 GO
-/****** Object:  View [RecursosHumanos].[V9_EmpleadosConfianza]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  View [RecursosHumanos].[V9_EmpleadosConfianza]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -888,7 +393,7 @@ FROM RecursosHumanos.Empleado emp
          INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
 WHERE ctemp.tipo_contrato = 'CON'
 GO
-/****** Object:  View [RecursosHumanos].[V10_EmpleadosEventuaales]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  View [RecursosHumanos].[V10_EmpleadosEventuaales]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -915,7 +420,7 @@ FROM RecursosHumanos.Empleado emp
          INNER JOIN RecursosHumanos.Puesto pst ON emp.PuestoId = pst.PuestoId
 WHERE ctemp.tipo_contrato = 'EVE'
 GO
-/****** Object:  Table [Servicios].[CartaNoAdeudos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Servicios].[CartaNoAdeudos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -930,7 +435,44 @@ CREATE TABLE [Servicios].[CartaNoAdeudos](
                                                      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [Servicios].[V11_ListaClientesCartaNoAdeudos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[Cliente]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[Cliente](
+                                     [ClienteId] [bigint] IDENTITY(1,1) NOT NULL,
+                                     [PersonaId] [bigint] NOT NULL,
+                                     [fecha_corte] [date] NOT NULL,
+                                     [ContratoId] [bigint] NOT NULL,
+                                     [actividad] [char](1) NULL,
+                                     [fecha_mod] [date] NOT NULL,
+                                     PRIMARY KEY CLUSTERED
+                                         (
+                                          [ClienteId] ASC
+                                             )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Servicios].[TicketServicio]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Servicios].[TicketServicio](
+                                             [ServicioId] [bigint] IDENTITY(1,1) NOT NULL,
+                                             [ClienteId] [bigint] NOT NULL,
+                                             [SuspensionId] [bigint] NULL,
+                                             [ReporteProblema] [bigint] NULL,
+                                             [ProgramaDescuento] [bigint] NULL,
+                                             [CartaNoAdeudos] [bigint] NULL,
+                                             [fecha_mod] [date] NOT NULL,
+                                             PRIMARY KEY CLUSTERED
+                                                 (
+                                                  [ServicioId] ASC
+                                                     )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Servicios].[V11_ListaClientesCartaNoAdeudos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -947,7 +489,43 @@ FROM Servicios.TicketServicio tser
          INNER JOIN Clientes.Cliente cli ON tser.ClienteId = cli.ClienteId
          INNER JOIN Personas.Persona P ON cli.PersonaId = P.PersonaId
 GO
-/****** Object:  View [Servicios].[V12_ListaClientesSuspension]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Servicios].[SuspensionServicio]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Servicios].[SuspensionServicio](
+                                                 [SuspensionId] [bigint] IDENTITY(1,1) NOT NULL,
+                                                 [actividad] [char](1) NULL,
+                                                 [descricpion] [varchar](50) NOT NULL,
+                                                 [fecha_suspension] [date] NOT NULL,
+                                                 [enlace_documento] [varchar](50) NOT NULL,
+                                                 [fecha_mod] [date] NOT NULL,
+                                                 PRIMARY KEY CLUSTERED
+                                                     (
+                                                      [SuspensionId] ASC
+                                                         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[Contrato]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[Contrato](
+                                      [ContratoId] [bigint] IDENTITY(1,1) NOT NULL,
+                                      [fecha_contrato] [date] NOT NULL,
+                                      [enlace_documento] [varchar](50) NOT NULL,
+                                      [TipoTarifaId] [bigint] NOT NULL,
+                                      [medidor] [varchar](12) NOT NULL,
+                                      [fecha_mod] [date] NOT NULL,
+                                      PRIMARY KEY CLUSTERED
+                                          (
+                                           [ContratoId] ASC
+                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Servicios].[V12_ListaClientesSuspension]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -972,7 +550,430 @@ FROM Servicios.TicketServicio ticket
          INNER JOIN Personas.Persona per ON cli.PersonaId = per.PersonaId
          INNER JOIN Servicios.SuspensionServicio sser ON ticket.SuspensionId = sser.SuspensionId
 GO
-/****** Object:  Table [Auditoria].[BitacoraModificaciones]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[Vehiculo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[Vehiculo](
+                                         [VehiculoId] [int] IDENTITY(1,1) NOT NULL,
+                                         [TipoVehiculoId] [int] NULL,
+                                         [matricula] [varchar](20) NOT NULL,
+                                         [actividad] [varchar](1) NOT NULL,
+                                         [EstablecimientoId] [bigint] NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [VehiculoId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Inventarios].[TipoVehiculo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[TipoVehiculo](
+                                             [TipoVehiculoId] [int] IDENTITY(1,1) NOT NULL,
+                                             [nombre] [varchar](50) NOT NULL,
+                                             [fecha_mod] [datetime] NOT NULL,
+                                             PRIMARY KEY CLUSTERED
+                                                 (
+                                                  [TipoVehiculoId] ASC
+                                                     )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Inventarios].[V13_ListaVehiculosSucursal]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--13.-Lista vehiculos (por sucursal)
+CREATE VIEW [Inventarios].[V13_ListaVehiculosSucursal] AS
+SELECT veh.VehiculoId,
+       veh.TipoVehiculoId,
+       veh.matricula,
+       tveh.nombre,
+       veh.actividad,
+       veh.EstablecimientoId,
+       veh.fecha_mod,
+       suc.TipoEstablecimientoId,
+       suc.DomicilioId
+FROM Inventarios.Vehiculo veh
+         INNER JOIN Sucursales.Establecimiento suc ON veh.EstablecimientoId = suc.EstablecimientoId
+         INNER JOIN Inventarios.TipoVehiculo tveh ON veh.TipoVehiculoId = tveh.TipoVehiculoId
+GO
+/****** Object:  Table [RecursosHumanos].[Turno]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [RecursosHumanos].[Turno](
+                                          [TurnoId] [tinyint] IDENTITY(1,1) NOT NULL,
+                                          [tipo] [char](3) NOT NULL,
+                                          [duracion] [tinyint] NOT NULL,
+                                          [hora_entrada] [time](0) NOT NULL,
+                                          [hora_salida] [time](0) NOT NULL,
+                                          [fecha_mod] [datetime] NOT NULL,
+                                          PRIMARY KEY CLUSTERED
+                                              (
+                                               [TurnoId] ASC
+                                                  )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [RecursosHumanos].[V14_ListaEmpleadoMatutino]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--14 - 16.-Lista empleados (por turno especifico) *3 (solo activos)
+CREATE VIEW [RecursosHumanos].[V14_ListaEmpleadoMatutino] AS
+SELECT emp.EmpleadoId,
+       per.apellido1,
+       per.apellido2,
+       per.nombre AS Persona,
+       emp.TurnoId,
+       etrn.tipo,
+       etrn.duracion,
+       etrn.hora_entrada,
+       etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'MAT'
+GO
+/****** Object:  View [RecursosHumanos].[V15_ListaEmpleadoVespertino]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [RecursosHumanos].[V15_ListaEmpleadoVespertino] AS
+SELECT emp.EmpleadoId,
+       per.apellido1,
+       per.apellido2,
+       per.nombre AS Persona,
+       emp.TurnoId,
+       etrn.tipo,
+       etrn.duracion,
+       etrn.hora_entrada,
+       etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'VES'
+GO
+/****** Object:  View [RecursosHumanos].[V16_ListaEmpleadoNocturno]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [RecursosHumanos].[V16_ListaEmpleadoNocturno] AS
+SELECT emp.EmpleadoId,
+       per.apellido1,
+       per.apellido2,
+       per.nombre AS Persona,
+       emp.TurnoId,
+       etrn.tipo,
+       etrn.duracion,
+       etrn.hora_entrada,
+       etrn.hora_salida
+FROM RecursosHumanos.Empleado emp
+         INNER JOIN RecursosHumanos.Turno etrn ON emp.TurnoId = etrn.TurnoId
+         INNER JOIN Personas.Persona per ON emp.PersonaId = per.PersonaId
+WHERE etrn.tipo = 'NOC'
+GO
+/****** Object:  Table [Sucursales].[Departamento]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Sucursales].[Departamento](
+                                            [DepartamentoId] [int] IDENTITY(1,1) NOT NULL,
+                                            [descripcion] [varchar](50) NOT NULL,
+                                            [segmento_red] [varchar](16) NOT NULL,
+                                            [fecha_mod] [date] NOT NULL,
+                                            PRIMARY KEY CLUSTERED
+                                                (
+                                                 [DepartamentoId] ASC
+                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [RecursosHumanos].[V1_ListaEmpleadosActivos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--1.-Lista empleados Activos
+CREATE VIEW [RecursosHumanos].[V1_ListaEmpleadosActivos] AS
+SELECT e.EmpleadoId,
+       e.ContratoId,
+       e.PuestoId,
+       e.fecha_contratacion,
+       e.TurnoId,
+       e.rfc,
+       d.DepartamentoId,
+       c.tipo_contrato
+FROM RecursosHumanos.Empleado e
+         INNER JOIN Personas.Persona p ON e.PersonaId = p.PersonaId
+         INNER JOIN Sucursales.Departamento d ON e.ContratoId = d.DepartamentoId
+         INNER JOIN RecursosHumanos.ContratoEmpleado c ON e.ContratoId = c.ContratoId
+WHERE e.Actividad = 'A'
+GO
+/****** Object:  View [Clientes].[V2_ListaClientes]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--2.-Lista clientes Activos
+CREATE VIEW [Clientes].[V2_ListaClientes] AS
+SELECT c.ClienteId,
+       p.PersonaId,
+       p.apellido1,
+       p.apellido2,
+       p.nombre,
+       p.tipo_persona,
+       c.ContratoId
+FROM Clientes.Cliente c
+         INNER JOIN Personas.Persona p ON c.PersonaId = p.PersonaId
+GO
+/****** Object:  View [Servicios].[V3_ContratosActivos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--3.-Contratos activos
+CREATE VIEW [Servicios].[V3_ContratosActivos] AS
+SELECT ts.ClienteId,
+       cl.PersonaId,
+       cl.ContratoId,
+       cnt.TipoTarifaId,
+       ss.actividad,
+       cl.fecha_corte,
+       ss.fecha_suspension,
+       cnt.fecha_contrato,
+       cnt.medidor
+FROM Servicios.TicketServicio ts
+         INNER JOIN Servicios.SuspensionServicio ss ON ts.SuspensionId = ss.SuspensionId
+         INNER JOIN Clientes.Cliente cl ON ts.ClienteId = cl.ClienteId
+         INNER JOIN Clientes.Contrato cnt ON ts.ClienteId = cnt.ContratoId
+WHERE ss.actividad IS NULL
+GO
+/****** Object:  Table [Inventarios].[Material]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[Material](
+                                         [MaterialId] [int] IDENTITY(1,1) NOT NULL,
+                                         [nombre] [varchar](50) NOT NULL,
+                                         [descripcion] [varchar](50) NULL,
+                                         [actividad] [varchar](1) NOT NULL,
+                                         [TipoMaterialId] [int] NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [MaterialId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Inventarios].[Mobiliario]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[Mobiliario](
+                                           [MobiliarioId] [int] IDENTITY(1,1) NOT NULL,
+                                           [nombre] [varchar](50) NOT NULL,
+                                           [descripcion] [varchar](50) NOT NULL,
+                                           [actividad] [varchar](1) NOT NULL,
+                                           [TipoMobiliarioId] [int] NULL,
+                                           [fecha_mod] [datetime] NOT NULL,
+                                           PRIMARY KEY CLUSTERED
+                                               (
+                                                [MobiliarioId] ASC
+                                                   )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Inventarios].[Inventario]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[Inventario](
+                                           [ProductoId] [int] IDENTITY(1,1) NOT NULL,
+                                           [MaterialId] [int] NULL,
+                                           [MobiliarioId] [int] NULL,
+                                           [VehiculoId] [int] NULL,
+                                           [cantidad] [int] NOT NULL,
+                                           [fecha_mod] [datetime] NOT NULL,
+                                           PRIMARY KEY CLUSTERED
+                                               (
+                                                [ProductoId] ASC
+                                                   )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Inventarios].[V4_ListaInventarioActual]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--4.-Lista inventario actual
+CREATE VIEW [Inventarios].[V4_ListaInventarioActual] AS
+SELECT inv.ProductoId,
+       inv.MaterialId,
+       inv.MobiliarioId,
+       inv.VehiculoId,
+       mat.TipoMaterialId,
+       mat.descripcion AS Material,
+       mat.actividad   AS mat,
+       mob.TipoMobiliarioId,
+       mob.descripcion AS Mobiliario,
+       mob.actividad   AS mob,
+       veh.TipoVehiculoId,
+       veh.matricula,
+       veh.EstablecimientoId,
+       veh.actividad   AS veh
+FROM Inventarios.Inventario inv
+         INNER JOIN Inventarios.Material mat ON inv.MaterialId = mat.MaterialId
+         INNER JOIN Inventarios.Mobiliario mob ON inv.MobiliarioId = mob.MobiliarioId
+         INNER JOIN Inventarios.Vehiculo veh ON inv.VehiculoId = veh.VehiculoId
+GO
+/****** Object:  Table [Inventarios].[Proveedor]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Inventarios].[Proveedor](
+                                          [ProveedorId] [int] IDENTITY(1,1) NOT NULL,
+                                          [PersonaId] [bigint] NULL,
+                                          [fecha_mod] [datetime] NOT NULL,
+                                          PRIMARY KEY CLUSTERED
+                                              (
+                                               [ProveedorId] ASC
+                                                  )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Inventarios].[V5_ListaProveedores]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--5.-Lista proveedores
+CREATE VIEW [Inventarios].[V5_ListaProveedores] AS
+SELECT pro.ProveedorId,
+       pro.PersonaId,
+       per.apellido1,
+       per.apellido2,
+       per.nombre,
+       per.tipo_persona,
+       per.NumeroTelId,
+       per.EmailId
+FROM Inventarios.Proveedor pro
+         INNER JOIN Personas.Persona per ON pro.PersonaId = per.PersonaId
+GO
+/****** Object:  Table [Personas].[Domicilio]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Personas].[Domicilio](
+                                       [DomicilioId] [bigint] IDENTITY(1,1) NOT NULL,
+                                       [domicilio_linea1] [varchar](100) NOT NULL,
+                                       [domicilio_linea2] [varchar](100) NULL,
+                                       [cod_postal] [varchar](5) NOT NULL,
+                                       [LocalidadId] [int] NOT NULL,
+                                       [TipoDomicilioId] [int] NOT NULL,
+                                       [fecha_mod] [datetime] NOT NULL,
+                                       [SectorId] [int] NULL,
+                                       PRIMARY KEY CLUSTERED
+                                           (
+                                            [DomicilioId] ASC
+                                               )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Servicios].[ReporteProblema]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Servicios].[ReporteProblema](
+                                              [ReporteId] [bigint] IDENTITY(1,1) NOT NULL,
+                                              [descripcion] [varchar](50) NOT NULL,
+                                              [fecha_reporte] [date] NOT NULL,
+                                              [EmpleadoId] [bigint] NOT NULL,
+                                              [seguimiento] [varchar](50) NOT NULL,
+                                              [DepartamentoId] [bigint] NOT NULL,
+                                              [observaciones] [varchar](50) NULL,
+                                              [fecha_mod] [date] NOT NULL,
+                                              PRIMARY KEY CLUSTERED
+                                                  (
+                                                   [ReporteId] ASC
+                                                      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Servicios].[V6_ListaReportes]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--6.-Historial reportes (cliente y donde fue)
+CREATE VIEW [Servicios].[V6_ListaReportes] AS
+SELECT --cliente y donde fue
+       rp.ReporteId,
+       ticket.ClienteId,
+       rp.descripcion,
+       rp.DepartamentoId,
+       rp.fecha_reporte,
+       dom.DomicilioId,
+       dom.LocalidadId,
+       dom.domicilio_linea1,
+       dom.domicilio_linea2,
+       dom.cod_postal
+FROM Servicios.TicketServicio ticket
+         INNER JOIN Servicios.ReporteProblema AS rp ON ticket.ReporteProblema = rp.ReporteId
+         INNER JOIN Clientes.Cliente cli ON ticket.ClienteId = cli.ClienteId
+         INNER JOIN Sucursales.Departamento dpa ON rp.DepartamentoId = dpa.DepartamentoId
+         INNER JOIN Personas.Domicilio dom ON cli.ClienteId = dom.DomicilioId
+GO
+/****** Object:  Table [Sucursales].[TipoEstablecimiento]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Sucursales].[TipoEstablecimiento](
+                                                   [TipoEstablecimientId] [bigint] IDENTITY(1,1) NOT NULL,
+                                                   [nombre] [varchar](50) NOT NULL,
+                                                   [fecha_mod] [date] NOT NULL,
+                                                   PRIMARY KEY CLUSTERED
+                                                       (
+                                                        [TipoEstablecimientId] ASC
+                                                           )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [Sucursales].[V7_ListaSucursaleTipo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--7.-Lista sucursales (por tipo)
+CREATE VIEW [Sucursales].[V7_ListaSucursaleTipo] AS
+SELECT suc.EstablecimientoId,
+       suc.nombre  AS Establecimiento,
+       suc.TipoEstablecimientoId,
+       tsuc.nombre AS TipoEstablecimiento,
+       dom.DomicilioId,
+       dom.LocalidadId,
+       dom.domicilio_linea1,
+       dom.domicilio_linea2,
+       dom.cod_postal,
+       dpa.DepartamentoId,
+       dpa.descripcion
+FROM Sucursales.Establecimiento suc
+         INNER JOIN Sucursales.TipoEstablecimiento tsuc ON suc.TipoEstablecimientoId = tsuc.TipoEstablecimientId
+         INNER JOIN Personas.Domicilio dom ON suc.DomicilioId = dom.DomicilioId
+         INNER JOIN Sucursales.Departamento dpa ON suc.DepartamentoId = dpa.DepartamentoId
+GO
+/****** Object:  Table [Auditoria].[BitacoraModificaciones]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -991,7 +992,7 @@ CREATE TABLE [Auditoria].[BitacoraModificaciones](
                                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Auditoria].[HistorialModSueldos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Auditoria].[HistorialModSueldos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1008,7 +1009,7 @@ CREATE TABLE [Auditoria].[HistorialModSueldos](
                                                           )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Auditoria].[HistorialMovsEstructura]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Auditoria].[HistorialMovsEstructura]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1026,7 +1027,7 @@ CREATE TABLE [Auditoria].[HistorialMovsEstructura](
                                                               )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Auditoria].[ModificacionInventario]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Auditoria].[ModificacionInventario]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1043,7 +1044,7 @@ CREATE TABLE [Auditoria].[ModificacionInventario](
                                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Auditoria].[RegistroAccesoBD]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Auditoria].[RegistroAccesoBD]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1058,7 +1059,7 @@ CREATE TABLE [Auditoria].[RegistroAccesoBD](
                                                        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Clientes].[Adeudos]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[Adeudos]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1080,7 +1081,7 @@ CREATE TABLE [Clientes].[Adeudos](
                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Clientes].[CargoServicio]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[CargoServicio]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1096,7 +1097,29 @@ CREATE TABLE [Clientes].[CargoServicio](
                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Clientes].[Consumo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[Comprobante]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[Comprobante](
+                                         [ComprobanteId] [bigint] IDENTITY(1,1) NOT NULL,
+                                         [PagoId] [bigint] NOT NULL,
+                                         [folio] [varchar](20) NOT NULL,
+                                         [serie] [varchar](5) NULL,
+                                         [fecha_emision] [datetime] NOT NULL,
+                                         [subtotal] [money] NOT NULL,
+                                         [iva] [money] NOT NULL,
+                                         [total] [money] NOT NULL,
+                                         [enlace_documento] [varchar](100) NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [ComprobanteId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[Consumo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1117,7 +1140,99 @@ CREATE TABLE [Clientes].[Consumo](
                                              )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Clientes].[Tarifa]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[EstatusPago]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[EstatusPago](
+                                         [EstatusId] [int] IDENTITY(1,1) NOT NULL,
+                                         [nombre] [varchar](30) NOT NULL,
+                                         [descripcion] [varchar](100) NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [EstatusId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[MetodoPago]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[MetodoPago](
+                                        [MetodoPagoId] [int] IDENTITY(1,1) NOT NULL,
+                                        [nombre] [varchar](50) NOT NULL,
+                                        [descripcion] [varchar](100) NULL,
+                                        [activo] [bit] NOT NULL,
+                                        [requiere_comprobante] [bit] NOT NULL,
+                                        [fecha_mod] [datetime] NOT NULL,
+                                        PRIMARY KEY CLUSTERED
+                                            (
+                                             [MetodoPagoId] ASC
+                                                )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[Pago]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[Pago](
+                                  [PagoId] [bigint] IDENTITY(1,1) NOT NULL,
+                                  [ClienteId] [bigint] NOT NULL,
+                                  [AdeudoId] [bigint] NOT NULL,
+                                  [monto] [money] NOT NULL,
+                                  [fecha_pago] [datetime] NOT NULL,
+                                  [MetodoPagoId] [int] NOT NULL,
+                                  [EstablecimientoId] [bigint] NOT NULL,
+                                  [EmpleadoId] [int] NULL,
+                                  [referencia_pago] [varchar](50) NULL,
+                                  [fecha_mod] [datetime] NOT NULL,
+                                  PRIMARY KEY CLUSTERED
+                                      (
+                                       [PagoId] ASC
+                                          )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[PagoDetalle]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[PagoDetalle](
+                                         [PagoDetalleId] [bigint] IDENTITY(1,1) NOT NULL,
+                                         [PagoId] [bigint] NOT NULL,
+                                         [AdeudoId] [bigint] NOT NULL,
+                                         [monto_aplicado] [money] NOT NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [PagoDetalleId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[PagoEstatus]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Clientes].[PagoEstatus](
+                                         [PagoEstatusId] [bigint] IDENTITY(1,1) NOT NULL,
+                                         [PagoId] [bigint] NOT NULL,
+                                         [EstatusId] [int] NOT NULL,
+                                         [comentario] [varchar](200) NULL,
+                                         [fecha_cambio] [datetime] NOT NULL,
+                                         [EmpleadoId] [int] NULL,
+                                         [fecha_mod] [datetime] NOT NULL,
+                                         PRIMARY KEY CLUSTERED
+                                             (
+                                              [PagoEstatusId] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Clientes].[Tarifa]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1136,7 +1251,7 @@ CREATE TABLE [Clientes].[Tarifa](
                                             )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Clientes].[TipoTarifa]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Clientes].[TipoTarifa]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1152,7 +1267,7 @@ CREATE TABLE [Clientes].[TipoTarifa](
                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[Compra]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[Compra]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1172,7 +1287,7 @@ CREATE TABLE [Inventarios].[Compra](
                                                )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[Facturacion]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[Facturacion]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1189,7 +1304,7 @@ CREATE TABLE [Inventarios].[Facturacion](
                                                     )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[ReporteVehiculo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[ReporteVehiculo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1207,7 +1322,7 @@ CREATE TABLE [Inventarios].[ReporteVehiculo](
                                                         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[TallerVehiculo]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[TallerVehiculo]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1222,7 +1337,7 @@ CREATE TABLE [Inventarios].[TallerVehiculo](
                                                        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[TipoMaterial]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[TipoMaterial]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1237,7 +1352,7 @@ CREATE TABLE [Inventarios].[TipoMaterial](
                                                      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Inventarios].[TipoMobiliario]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Inventarios].[TipoMobiliario]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1252,7 +1367,7 @@ CREATE TABLE [Inventarios].[TipoMobiliario](
                                                        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Personas].[Email]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[Email]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1267,7 +1382,7 @@ CREATE TABLE [Personas].[Email](
                                            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Personas].[Localidad]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[Localidad]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1282,7 +1397,7 @@ CREATE TABLE [Personas].[Localidad](
                                                )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Personas].[NumeroTelefonico]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[NumeroTelefonico]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1298,7 +1413,27 @@ CREATE TABLE [Personas].[NumeroTelefonico](
                                                       )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Personas].[TipoDomicilio]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[Sector]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Personas].[Sector](
+                                    [SectorId] [int] IDENTITY(1,1) NOT NULL,
+                                    [nombre] [varchar](50) NOT NULL,
+                                    [descripcion] [varchar](200) NULL,
+                                    [TipoSectorId] [int] NULL,
+                                    [LocalidadId] [int] NULL,
+                                    [area_km2] [decimal](10, 2) NULL,
+                                    [poblacion] [int] NULL,
+                                    [fecha_mod] [datetime] NOT NULL,
+                                    PRIMARY KEY CLUSTERED
+                                        (
+                                         [SectorId] ASC
+                                            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Personas].[TipoDomicilio]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1313,7 +1448,7 @@ CREATE TABLE [Personas].[TipoDomicilio](
                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Personas].[TipoNumero]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[TipoNumero]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1328,7 +1463,22 @@ CREATE TABLE [Personas].[TipoNumero](
                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[Banco]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Personas].[TipoSector]    Script Date: 31/05/2025 12:55:37 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Personas].[TipoSector](
+                                        [TipoSectorId] [int] IDENTITY(1,1) NOT NULL,
+                                        [descripcion] [varchar](50) NOT NULL,
+                                        [fecha_mod] [datetime] NOT NULL,
+                                        PRIMARY KEY CLUSTERED
+                                            (
+                                             [TipoSectorId] ASC
+                                                )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [RecursosHumanos].[Banco]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1343,7 +1493,7 @@ CREATE TABLE [RecursosHumanos].[Banco](
                                                   )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[HistorialAsistencia]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[HistorialAsistencia]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1360,7 +1510,7 @@ CREATE TABLE [RecursosHumanos].[HistorialAsistencia](
                                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[Nomina]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[Nomina]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1376,7 +1526,7 @@ CREATE TABLE [RecursosHumanos].[Nomina](
                                                    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[PuestoSindicato]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[PuestoSindicato]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1392,7 +1542,7 @@ CREATE TABLE [RecursosHumanos].[PuestoSindicato](
                                                             )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [RecursosHumanos].[Sindicato]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [RecursosHumanos].[Sindicato]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1409,7 +1559,7 @@ CREATE TABLE [RecursosHumanos].[Sindicato](
                                                       )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Servicios].[ProgramaDescuento]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Servicios].[ProgramaDescuento]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1427,7 +1577,7 @@ CREATE TABLE [Servicios].[ProgramaDescuento](
                                                         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Sucursales].[CajeroAutomatico]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Sucursales].[CajeroAutomatico]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1447,7 +1597,7 @@ CREATE TABLE [Sucursales].[CajeroAutomatico](
                                                         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [Sucursales].[Red]    Script Date: 28/05/2025 03:25:54 a. m. ******/
+/****** Object:  Table [Sucursales].[Red]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1494,6 +1644,40 @@ GO
 INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (14, N'ALTER_TABLE', N'Adeudos', N'TABLE', CAST(N'2025-05-28T03:24:36.147' AS DateTime), N'LATITUDE-5520\Suspect')
 GO
 INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (15, N'ALTER_TABLE', N'Adeudos', N'TABLE', CAST(N'2025-05-28T03:24:36.150' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (16, N'CREATE_TABLE', N'MetodoPago', N'TABLE', CAST(N'2025-05-31T00:23:37.467' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (17, N'CREATE_TABLE', N'Pago', N'TABLE', CAST(N'2025-05-31T00:23:37.487' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (18, N'CREATE_TABLE', N'EstatusPago', N'TABLE', CAST(N'2025-05-31T00:23:37.490' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (19, N'CREATE_TABLE', N'PagoEstatus', N'TABLE', CAST(N'2025-05-31T00:23:37.493' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (20, N'CREATE_TABLE', N'Comprobante', N'TABLE', CAST(N'2025-05-31T00:23:37.497' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (21, N'CREATE_TABLE', N'PagoDetalle', N'TABLE', CAST(N'2025-05-31T00:23:37.500' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (22, N'ALTER_TABLE', N'Pago', N'TABLE', CAST(N'2025-05-31T00:23:37.513' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (23, N'ALTER_TABLE', N'Pago', N'TABLE', CAST(N'2025-05-31T00:23:37.517' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (24, N'ALTER_TABLE', N'Pago', N'TABLE', CAST(N'2025-05-31T00:23:37.520' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (25, N'ALTER_TABLE', N'PagoEstatus', N'TABLE', CAST(N'2025-05-31T00:23:37.523' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (26, N'ALTER_TABLE', N'PagoEstatus', N'TABLE', CAST(N'2025-05-31T00:23:37.523' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (27, N'ALTER_TABLE', N'Comprobante', N'TABLE', CAST(N'2025-05-31T00:23:37.530' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (28, N'ALTER_TABLE', N'PagoDetalle', N'TABLE', CAST(N'2025-05-31T00:23:37.530' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (29, N'ALTER_TABLE', N'PagoDetalle', N'TABLE', CAST(N'2025-05-31T00:23:37.533' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (30, N'CREATE_TABLE', N'TipoSector', N'TABLE', CAST(N'2025-05-31T00:28:39.930' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (31, N'CREATE_TABLE', N'Sector', N'TABLE', CAST(N'2025-05-31T00:28:39.940' AS DateTime), N'LATITUDE-5520\Suspect')
+GO
+INSERT [Auditoria].[HistorialMovsEstructura] ([MovimientoId], [tipo_mov], [nom_obj], [tipo_obj], [fecha], [usuario]) VALUES (32, N'ALTER_TABLE', N'Domicilio', N'TABLE', CAST(N'2025-05-31T00:28:39.973' AS DateTime), N'LATITUDE-5520\Suspect')
 GO
 SET IDENTITY_INSERT [Auditoria].[HistorialMovsEstructura] OFF
 GO
@@ -1817,6 +2001,38 @@ INSERT [Clientes].[Contrato] ([ContratoId], [fecha_contrato], [enlace_documento]
 GO
 SET IDENTITY_INSERT [Clientes].[Contrato] OFF
 GO
+SET IDENTITY_INSERT [Clientes].[EstatusPago] ON
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (1, N'Pendiente', N'El pago está pendiente de procesamiento', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (2, N'Procesando', N'El pago está siendo procesado', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (3, N'Completado', N'El pago ha sido completado y aplicado', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (4, N'Rechazado', N'El pago fue rechazado por la entidad financiera', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (5, N'Cancelado', N'El pago fue cancelado por el usuario o administrador', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+INSERT [Clientes].[EstatusPago] ([EstatusId], [nombre], [descripcion], [fecha_mod]) VALUES (6, N'Reembolsado', N'El monto del pago fue devuelto al cliente', CAST(N'2025-05-31T00:23:37.577' AS DateTime))
+GO
+SET IDENTITY_INSERT [Clientes].[EstatusPago] OFF
+GO
+SET IDENTITY_INSERT [Clientes].[MetodoPago] ON
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (1, N'Efectivo', N'Pago en efectivo en cajas', 1, 0, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (2, N'Tarjeta de crédito/débito', N'Pago con tarjeta en terminal', 1, 1, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (3, N'Transferencia bancaria', N'Pago por transferencia electrónica', 1, 1, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (4, N'Depósito bancario', N'Pago por depósito en banco', 1, 1, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (5, N'Pago en línea', N'Pago a través del portal web', 1, 0, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+INSERT [Clientes].[MetodoPago] ([MetodoPagoId], [nombre], [descripcion], [activo], [requiere_comprobante], [fecha_mod]) VALUES (6, N'Cheque', N'Pago con cheque', 1, 1, CAST(N'2025-05-31T00:23:37.580' AS DateTime))
+GO
+SET IDENTITY_INSERT [Clientes].[MetodoPago] OFF
+GO
 SET IDENTITY_INSERT [Clientes].[Tarifa] ON
 GO
 INSERT [Clientes].[Tarifa] ([TarifaId], [precio_base], [base_agua], [base_drenaje], [base_saneamiento], [max_m3], [fecha_mod]) VALUES (1, 150.0000, 80.0000, 40.0000, 30.0000, 10, CAST(N'2025-04-28' AS Date))
@@ -2075,105 +2291,105 @@ SET IDENTITY_INSERT [Inventarios].[Vehiculo] OFF
 GO
 SET IDENTITY_INSERT [Personas].[Domicilio] ON
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (1, N'Calle Principal 123', N'Colonia Centro', N'81200', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (1, N'Calle Principal 123', N'Colonia Centro', N'81200', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (2, N'Av. Independencia 456', N'Colonia Libertad', N'81210', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (2, N'Av. Independencia 456', N'Colonia Libertad', N'81210', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (3, N'Calle Reforma 789', N'Colonia Progreso', N'81220', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (3, N'Calle Reforma 789', N'Colonia Progreso', N'81220', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (4, N'Blvd. Centenario 234', N'Colonia Modern', N'81230', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (4, N'Blvd. Centenario 234', N'Colonia Modern', N'81230', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (5, N'Av. Álamos 567', N'Colonia Jardines', N'81240', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (5, N'Av. Álamos 567', N'Colonia Jardines', N'81240', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (6, N'Calle Pino 890', N'Colonia Bosques', N'81250', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (6, N'Calle Pino 890', N'Colonia Bosques', N'81250', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (7, N'Av. Rosales 123', N'Colonia Flores', N'81260', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (7, N'Av. Rosales 123', N'Colonia Flores', N'81260', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (8, N'Calle Juárez 456', N'Colonia Centro', N'81270', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (8, N'Calle Juárez 456', N'Colonia Centro', N'81270', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (9, N'Av. Hidalgo 789', N'Colonia Reforma', N'81280', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (9, N'Av. Hidalgo 789', N'Colonia Reforma', N'81280', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (10, N'Calle Morelos 012', N'Colonia Victoria', N'81290', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (10, N'Calle Morelos 012', N'Colonia Victoria', N'81290', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (11, N'Blvd. Zaragoza 345', N'Colonia Nueva', N'81300', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (11, N'Blvd. Zaragoza 345', N'Colonia Nueva', N'81300', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (12, N'Av. Sinaloa 678', N'Colonia Estado', N'81310', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (12, N'Av. Sinaloa 678', N'Colonia Estado', N'81310', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (13, N'Calle Sonora 901', N'Colonia Norte', N'81320', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (13, N'Calle Sonora 901', N'Colonia Norte', N'81320', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (14, N'Av. Chihuahua 234', N'Colonia Sur', N'81330', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (14, N'Av. Chihuahua 234', N'Colonia Sur', N'81330', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (15, N'Calle Durango 567', N'Colonia Este', N'81340', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (15, N'Calle Durango 567', N'Colonia Este', N'81340', 1, 1, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (16, N'Zona Industrial 100', N'Parque Industrial', N'81400', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (16, N'Zona Industrial 100', N'Parque Industrial', N'81400', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (17, N'Av. Comercial 200', N'Zona Comercial', N'81410', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (17, N'Av. Comercial 200', N'Zona Comercial', N'81410', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (18, N'Blvd. Industrial 300', N'Sector 1', N'81420', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (18, N'Blvd. Industrial 300', N'Sector 1', N'81420', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (19, N'Carretera Nacional 400', N'Km 5', N'81430', 2, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (19, N'Carretera Nacional 400', N'Km 5', N'81430', 2, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (20, N'Av. Empresarial 500', N'Zona Dorada', N'81440', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (20, N'Av. Empresarial 500', N'Zona Dorada', N'81440', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (21, N'Calle Comercio 600', N'Centro', N'81450', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (21, N'Calle Comercio 600', N'Centro', N'81450', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (22, N'Av. Negocios 700', N'Plaza Principal', N'81460', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (22, N'Av. Negocios 700', N'Plaza Principal', N'81460', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (23, N'Blvd. Corporativo 800', N'Torre A', N'81470', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (23, N'Blvd. Corporativo 800', N'Torre A', N'81470', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (24, N'Carretera Internacional 900', N'Km 10', N'81480', 3, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (24, N'Carretera Internacional 900', N'Km 10', N'81480', 3, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (25, N'Av. Industrial 1000', N'Parque 2', N'81490', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (25, N'Av. Industrial 1000', N'Parque 2', N'81490', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (26, N'Zona Comercial 1100', N'Local 1', N'81500', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (26, N'Zona Comercial 1100', N'Local 1', N'81500', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (27, N'Av. Principal 1200', N'Plaza Norte', N'81510', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (27, N'Av. Principal 1200', N'Plaza Norte', N'81510', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (28, N'Blvd. Empresas 1300', N'Edificio B', N'81520', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (28, N'Blvd. Empresas 1300', N'Edificio B', N'81520', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (29, N'Calle Industria 1400', N'Nave 3', N'81530', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (29, N'Calle Industria 1400', N'Nave 3', N'81530', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (30, N'Av. Comercios 1500', N'Local 100', N'81540', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (30, N'Av. Comercios 1500', N'Local 100', N'81540', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (31, N'Zona Industrial 1600', N'Bodega 5', N'81550', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (31, N'Zona Industrial 1600', N'Bodega 5', N'81550', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (32, N'Av. Corporativa 1700', N'Piso 2', N'81560', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (32, N'Av. Corporativa 1700', N'Piso 2', N'81560', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (33, N'Blvd. Negocios 1800', N'Suite 300', N'81570', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (33, N'Blvd. Negocios 1800', N'Suite 300', N'81570', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (34, N'Calle Empresarial 1900', N'Oficina 4', N'81580', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (34, N'Calle Empresarial 1900', N'Oficina 4', N'81580', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (35, N'Av. Industrial 2000', N'Planta 1', N'81590', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (35, N'Av. Industrial 2000', N'Planta 1', N'81590', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (36, N'Zona Comercial 2100', N'Local 200', N'81600', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (36, N'Zona Comercial 2100', N'Local 200', N'81600', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (37, N'Av. Empresas 2200', N'Edificio C', N'81610', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (37, N'Av. Empresas 2200', N'Edificio C', N'81610', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (38, N'Blvd. Industrial 2300', N'Nave 7', N'81620', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (38, N'Blvd. Industrial 2300', N'Nave 7', N'81620', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (39, N'Calle Negocios 2400', N'Torre B', N'81630', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (39, N'Calle Negocios 2400', N'Torre B', N'81630', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (40, N'Av. Corporativo 2500', N'Piso 5', N'81640', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (40, N'Av. Corporativo 2500', N'Piso 5', N'81640', 1, 2, CAST(N'2025-04-28T01:50:30.240' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (41, N'Av. Insurgentes 2600', N'Residencial Las Palmas', N'81650', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (41, N'Av. Insurgentes 2600', N'Residencial Las Palmas', N'81650', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (42, N'Calle Girasoles 2700', N'Fraccionamiento Las Flores', N'81660', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (42, N'Calle Girasoles 2700', N'Fraccionamiento Las Flores', N'81660', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (43, N'Blvd. Alameda 2800', N'Colonia Los Pinos', N'81670', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (43, N'Blvd. Alameda 2800', N'Colonia Los Pinos', N'81670', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (44, N'Paseo del Mar 2900', N'Residencial Costa Azul', N'81680', 3, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (44, N'Paseo del Mar 2900', N'Residencial Costa Azul', N'81680', 3, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (45, N'Calle Nogal 3000', N'Colonia Las Arboledas', N'81690', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (45, N'Calle Nogal 3000', N'Colonia Las Arboledas', N'81690', 1, 1, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (46, N'Av. Universidad 3100', N'Colonia Educación', N'81700', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (46, N'Av. Universidad 3100', N'Colonia Educación', N'81700', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (47, N'Blvd. Las Torres 3200', N'Torre Ejecutiva', N'81710', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (47, N'Blvd. Las Torres 3200', N'Torre Ejecutiva', N'81710', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (48, N'Carretera Vieja 3300', N'Parque Industrial Sur', N'81720', 2, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (48, N'Carretera Vieja 3300', N'Parque Industrial Sur', N'81720', 2, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (49, N'Av. Las Américas 3400', N'Plaza Comercial', N'81730', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (49, N'Av. Las Américas 3400', N'Plaza Comercial', N'81730', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
-INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod]) VALUES (50, N'Calle Victoria 3500', N'Centro Histórico', N'81740', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime))
+INSERT [Personas].[Domicilio] ([DomicilioId], [domicilio_linea1], [domicilio_linea2], [cod_postal], [LocalidadId], [TipoDomicilioId], [fecha_mod], [SectorId]) VALUES (50, N'Calle Victoria 3500', N'Centro Histórico', N'81740', 1, 2, CAST(N'2025-04-28T01:50:30.243' AS DateTime), NULL)
 GO
 SET IDENTITY_INSERT [Personas].[Domicilio] OFF
 GO
@@ -2997,7 +3213,7 @@ SET IDENTITY_INSERT [Sucursales].[TipoEstablecimiento] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Email__2A586E0BD176B4C3]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  Index [UQ__Email__2A586E0BA3388116]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 ALTER TABLE [Personas].[Email] ADD UNIQUE NONCLUSTERED
     (
      [correo] ASC
@@ -3005,7 +3221,7 @@ ALTER TABLE [Personas].[Email] ADD UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__NumeroTe__FC77F211A94ECBEC]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  Index [UQ__NumeroTe__FC77F211C53218A2]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 ALTER TABLE [Personas].[NumeroTelefonico] ADD UNIQUE NONCLUSTERED
     (
      [numero] ASC
@@ -3013,7 +3229,7 @@ ALTER TABLE [Personas].[NumeroTelefonico] ADD UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Empleado__C2B034945650C910]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  Index [UQ__Empleado__C2B034940758BC18]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 ALTER TABLE [RecursosHumanos].[Empleado] ADD UNIQUE NONCLUSTERED
     (
      [rfc] ASC
@@ -3021,13 +3237,13 @@ ALTER TABLE [RecursosHumanos].[Empleado] ADD UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UQ__Empleado__DF90FDB125A79751]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  Index [UQ__Empleado__DF90FDB17D52935F]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 ALTER TABLE [RecursosHumanos].[Empleado] ADD UNIQUE NONCLUSTERED
     (
      [nss] ASC
         )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_EMPLEADOS_ESTABLECIMIENTO]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  Index [IX_EMPLEADOS_ESTABLECIMIENTO]    Script Date: 31/05/2025 12:55:37 a. m. ******/
 CREATE NONCLUSTERED INDEX [IX_EMPLEADOS_ESTABLECIMIENTO] ON [RecursosHumanos].[Empleado]
     (
      [EstablecimientoId] ASC
@@ -3036,6 +3252,10 @@ GO
 ALTER TABLE [Auditoria].[BitacoraModificaciones] ADD  DEFAULT (getdate()) FOR [FechaModificacion]
 GO
 ALTER TABLE [Auditoria].[RegistroAccesoBD] ADD  DEFAULT (getdate()) FOR [fecha_acceso]
+GO
+ALTER TABLE [Clientes].[MetodoPago] ADD  DEFAULT ((1)) FOR [activo]
+GO
+ALTER TABLE [Clientes].[MetodoPago] ADD  DEFAULT ((0)) FOR [requiere_comprobante]
 GO
 ALTER TABLE [Auditoria].[HistorialModSueldos]  WITH CHECK ADD FOREIGN KEY([PuestoId])
     REFERENCES [RecursosHumanos].[Puesto] ([PuestoId])
@@ -3073,10 +3293,50 @@ ALTER TABLE [Clientes].[Cliente]  WITH CHECK ADD  CONSTRAINT [FK_ContratoId] FOR
 GO
 ALTER TABLE [Clientes].[Cliente] CHECK CONSTRAINT [FK_ContratoId]
 GO
+ALTER TABLE [Clientes].[Comprobante]  WITH CHECK ADD  CONSTRAINT [FK_Comprobante_Pago] FOREIGN KEY([PagoId])
+    REFERENCES [Clientes].[Pago] ([PagoId])
+GO
+ALTER TABLE [Clientes].[Comprobante] CHECK CONSTRAINT [FK_Comprobante_Pago]
+GO
 ALTER TABLE [Clientes].[Contrato]  WITH CHECK ADD  CONSTRAINT [FK_TipoTarifaId] FOREIGN KEY([TipoTarifaId])
     REFERENCES [Clientes].[TipoTarifa] ([TipoTarifaId])
 GO
 ALTER TABLE [Clientes].[Contrato] CHECK CONSTRAINT [FK_TipoTarifaId]
+GO
+ALTER TABLE [Clientes].[Pago]  WITH CHECK ADD  CONSTRAINT [FK_Pago_Adeudo] FOREIGN KEY([AdeudoId])
+    REFERENCES [Clientes].[Adeudos] ([AdeudoId])
+GO
+ALTER TABLE [Clientes].[Pago] CHECK CONSTRAINT [FK_Pago_Adeudo]
+GO
+ALTER TABLE [Clientes].[Pago]  WITH CHECK ADD  CONSTRAINT [FK_Pago_Cliente] FOREIGN KEY([ClienteId])
+    REFERENCES [Clientes].[Cliente] ([ClienteId])
+GO
+ALTER TABLE [Clientes].[Pago] CHECK CONSTRAINT [FK_Pago_Cliente]
+GO
+ALTER TABLE [Clientes].[Pago]  WITH CHECK ADD  CONSTRAINT [FK_Pago_MetodoPago] FOREIGN KEY([MetodoPagoId])
+    REFERENCES [Clientes].[MetodoPago] ([MetodoPagoId])
+GO
+ALTER TABLE [Clientes].[Pago] CHECK CONSTRAINT [FK_Pago_MetodoPago]
+GO
+ALTER TABLE [Clientes].[PagoDetalle]  WITH CHECK ADD  CONSTRAINT [FK_PagoDetalle_Adeudo] FOREIGN KEY([AdeudoId])
+    REFERENCES [Clientes].[Adeudos] ([AdeudoId])
+GO
+ALTER TABLE [Clientes].[PagoDetalle] CHECK CONSTRAINT [FK_PagoDetalle_Adeudo]
+GO
+ALTER TABLE [Clientes].[PagoDetalle]  WITH CHECK ADD  CONSTRAINT [FK_PagoDetalle_Pago] FOREIGN KEY([PagoId])
+    REFERENCES [Clientes].[Pago] ([PagoId])
+GO
+ALTER TABLE [Clientes].[PagoDetalle] CHECK CONSTRAINT [FK_PagoDetalle_Pago]
+GO
+ALTER TABLE [Clientes].[PagoEstatus]  WITH CHECK ADD  CONSTRAINT [FK_PagoEstatus_Estatus] FOREIGN KEY([EstatusId])
+    REFERENCES [Clientes].[EstatusPago] ([EstatusId])
+GO
+ALTER TABLE [Clientes].[PagoEstatus] CHECK CONSTRAINT [FK_PagoEstatus_Estatus]
+GO
+ALTER TABLE [Clientes].[PagoEstatus]  WITH CHECK ADD  CONSTRAINT [FK_PagoEstatus_Pago] FOREIGN KEY([PagoId])
+    REFERENCES [Clientes].[Pago] ([PagoId])
+GO
+ALTER TABLE [Clientes].[PagoEstatus] CHECK CONSTRAINT [FK_PagoEstatus_Pago]
 GO
 ALTER TABLE [Clientes].[TipoTarifa]  WITH CHECK ADD  CONSTRAINT [FK_TarifaId] FOREIGN KEY([TarifaId])
     REFERENCES [Clientes].[Tarifa] ([TarifaId])
@@ -3144,6 +3404,9 @@ GO
 ALTER TABLE [Personas].[Domicilio]  WITH CHECK ADD FOREIGN KEY([LocalidadId])
     REFERENCES [Personas].[Localidad] ([LocalidadId])
 GO
+ALTER TABLE [Personas].[Domicilio]  WITH CHECK ADD FOREIGN KEY([SectorId])
+    REFERENCES [Personas].[Sector] ([SectorId])
+GO
 ALTER TABLE [Personas].[Domicilio]  WITH CHECK ADD FOREIGN KEY([TipoDomicilioId])
     REFERENCES [Personas].[TipoDomicilio] ([TipoDomicilioId])
 GO
@@ -3155,6 +3418,12 @@ ALTER TABLE [Personas].[Persona]  WITH CHECK ADD FOREIGN KEY([EmailId])
 GO
 ALTER TABLE [Personas].[Persona]  WITH CHECK ADD FOREIGN KEY([NumeroTelId])
     REFERENCES [Personas].[NumeroTelefonico] ([NumeroTelId])
+GO
+ALTER TABLE [Personas].[Sector]  WITH CHECK ADD FOREIGN KEY([LocalidadId])
+    REFERENCES [Personas].[Localidad] ([LocalidadId])
+GO
+ALTER TABLE [Personas].[Sector]  WITH CHECK ADD FOREIGN KEY([TipoSectorId])
+    REFERENCES [Personas].[TipoSector] ([TipoSectorId])
 GO
 ALTER TABLE [RecursosHumanos].[Empleado]  WITH CHECK ADD FOREIGN KEY([ContratoId])
     REFERENCES [RecursosHumanos].[ContratoEmpleado] ([ContratoId])
@@ -3249,7 +3518,7 @@ ALTER TABLE [Sucursales].[CajeroAutomatico]  WITH CHECK ADD  CONSTRAINT [activid
 GO
 ALTER TABLE [Sucursales].[CajeroAutomatico] CHECK CONSTRAINT [actividad]
 GO
-/****** Object:  StoredProcedure [Auditoria].[Fecha_Mod_Trigger_ALL]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Auditoria].[Fecha_Mod_Trigger_ALL]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3318,7 +3587,7 @@ BEGIN
     DEALLOCATE SchemaCursor
 END
 GO
-/****** Object:  StoredProcedure [Auditoria].[TR_BITACORA_MOD_ALL]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Auditoria].[TR_BITACORA_MOD_ALL]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3393,7 +3662,7 @@ BEGIN
     DEALLOCATE SchemaCursor
 END
 GO
-/****** Object:  StoredProcedure [Clientes].[InsertarAdeudoConConsumo]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Clientes].[InsertarAdeudoConConsumo]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3468,7 +3737,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  StoredProcedure [Clientes].[InsertarCliente]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Clientes].[InsertarCliente]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3557,7 +3826,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  StoredProcedure [Inventarios].[InsertarCompra]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Inventarios].[InsertarCompra]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3595,7 +3864,7 @@ BEGIN
     END CATCH
 END
 GO
-/****** Object:  StoredProcedure [Inventarios].[InsertarProducto]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Inventarios].[InsertarProducto]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3645,7 +3914,7 @@ BEGIN
     END CATCH
 END
 GO
-/****** Object:  StoredProcedure [Inventarios].[InsertarProveedor]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Inventarios].[InsertarProveedor]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3712,7 +3981,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  StoredProcedure [Inventarios].[InsertarReporteVehiculo]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Inventarios].[InsertarReporteVehiculo]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3738,7 +4007,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  StoredProcedure [RecursosHumanos].[InsertarEmpleado]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [RecursosHumanos].[InsertarEmpleado]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3842,7 +4111,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  StoredProcedure [Servicios].[InsertarTicketSoporte]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  StoredProcedure [Servicios].[InsertarTicketSoporte]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3943,7 +4212,7 @@ BEGIN
     END CATCH
 END;
 GO
-/****** Object:  DdlTrigger [TG_REGISTRO_MOVS]    Script Date: 28/05/2025 03:25:55 a. m. ******/
+/****** Object:  DdlTrigger [TG_REGISTRO_MOVS]    Script Date: 31/05/2025 12:55:38 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

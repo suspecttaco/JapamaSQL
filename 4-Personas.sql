@@ -69,3 +69,27 @@ create table [Personas].[Persona]
     [fecha_mod]    datetime                          not null                               -- Fecha de última modificación del registro
 );
 
+-- Tabla para tipos de sectores (residencial, industrial, comercial, etc.)
+CREATE TABLE [Personas].[TipoSector]
+(
+    [TipoSectorId] INT PRIMARY KEY IDENTITY (1,1) NOT NULL, -- Identificador único del tipo de sector
+    [descripcion]  VARCHAR(50)                    NOT NULL, -- Descripción del tipo de sector
+    [fecha_mod]    DATETIME                       NOT NULL  -- Fecha de última modificación del registro
+);
+
+-- Tabla para almacenar los sectores de la ciudad con más información
+CREATE TABLE [Personas].[Sector]
+(
+    [SectorId]     INT PRIMARY KEY IDENTITY (1,1) NOT NULL, -- Identificador único del sector
+    [nombre]       VARCHAR(50)                    NOT NULL, -- Nombre del sector
+    [descripcion]  VARCHAR(200),                           -- Descripción opcional del sector
+    [TipoSectorId] INT FOREIGN KEY REFERENCES Personas.TipoSector (TipoSectorId), -- Tipo de sector
+    [LocalidadId]  INT FOREIGN KEY REFERENCES Personas.Localidad (LocalidadId),   -- Localidad a la que pertenece
+    [area_km2]     DECIMAL(10,2),                          -- Área en kilómetros cuadrados (opcional)
+    [poblacion]    INT,                                    -- Población aproximada (opcional)
+    [fecha_mod]    DATETIME                       NOT NULL  -- Fecha de última modificación del registro
+);
+
+-- Modificación de la tabla Domicilio para incluir el sector
+ALTER TABLE [Personas].[Domicilio]
+    ADD [SectorId] INT FOREIGN KEY REFERENCES Personas.Sector (SectorId);

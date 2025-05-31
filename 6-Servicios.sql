@@ -1,9 +1,3 @@
-/*
-Script para la creación de tablas relacionadas con Servicios en la base de datos BD_JAPAMA
-Este script define las estructuras para manejar reportes de problemas, suspensiones de servicio,
-tickets de servicio, cartas de no adeudos y programas de descuento.
-*/
-
 use BD_JAPAMA
 go
 

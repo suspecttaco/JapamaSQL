@@ -884,3 +884,24 @@ VALUES
 (8, NULL, NULL, NULL, 8, GETDATE()),
 (9, NULL, NULL, NULL, 9, GETDATE()),
 (10, NULL, NULL, NULL, 10, GETDATE());
+
+-- Inserción de datos iniciales para estatus de pago
+INSERT INTO Clientes.EstatusPago (nombre, descripcion, fecha_mod)
+VALUES
+    ('Pendiente', 'El pago está pendiente de procesamiento', GETDATE()),
+    ('Procesando', 'El pago está siendo procesado', GETDATE()),
+    ('Completado', 'El pago ha sido completado y aplicado', GETDATE()),
+    ('Rechazado', 'El pago fue rechazado por la entidad financiera', GETDATE()),
+    ('Cancelado', 'El pago fue cancelado por el usuario o administrador', GETDATE()),
+    ('Reembolsado', 'El monto del pago fue devuelto al cliente', GETDATE());
+
+-- Inserción de datos iniciales para métodos de pago
+INSERT INTO Clientes.MetodoPago (nombre, descripcion, activo, requiere_comprobante, fecha_mod)
+VALUES
+    ('Efectivo', 'Pago en efectivo en cajas', 1, 0, GETDATE()),
+    ('Tarjeta de crédito/débito', 'Pago con tarjeta en terminal', 1, 1, GETDATE()),
+    ('Transferencia bancaria', 'Pago por transferencia electrónica', 1, 1, GETDATE()),
+    ('Depósito bancario', 'Pago por depósito en banco', 1, 1, GETDATE()),
+    ('Pago en línea', 'Pago a través del portal web', 1, 0, GETDATE()),
+    ('Cheque', 'Pago con cheque', 1, 1, GETDATE());
+GO

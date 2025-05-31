@@ -1,12 +1,5 @@
 
 /*===========================================================================================================
-    Nombre del archivo: 11-Procedure.sql
-    Descripción: Archivo que contiene los procedimientos almacenados principales del sistema BD_JAPAMA
-    Fecha creación: 2025-05-30
-    Autor: 
-============================================================================================================*/
-
-/*===========================================================================================================
     Lista de procedimientos almacenados:
     1. Clientes.InsertarCliente - Inserta un nuevo cliente con su información personal, domicilio y contrato
     2. RecursosHumanos.InsertarEmpleado - Registra un nuevo empleado con datos personales y laborales 
