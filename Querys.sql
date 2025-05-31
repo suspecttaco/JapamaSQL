@@ -75,7 +75,7 @@ GO
 
 SELECT * FROM RecursosHumanos.N_EmpleadoContrato()
 GO
-
+-- pendiente
 SELECT *
 FROM RecursosHumanos.AsistenciaPeriodo('2023-01-01', '2023-12-31')
 GO
@@ -87,7 +87,7 @@ FROM Clientes.V2_ListaClientes c
          JOIN Personas.Domicilio d ON p.DomicilioId = d.DomicilioId
          JOIN Personas.Localidad l ON d.LocalidadId = l.LocalidadId
 GO
-
+-- pendiente
 SELECT * FROM Servicios.V3_ContratosActivos
 GO
 
