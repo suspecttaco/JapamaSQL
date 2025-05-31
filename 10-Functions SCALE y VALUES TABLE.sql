@@ -1,3 +1,53 @@
+-- Este archivo contiene funciones escalares y funciones con valores de tabla para la gestión de empleados,
+-- asistencias, clientes y personas.
+
+-- FUNCIONES ESCALARES
+-- ==================
+
+-- 1. RecursosHumanos.FC_TotalAsistenciasEmpleados
+-- Propósito: Cuenta el total de asistencias para un empleado específico
+-- Parámetros:
+--   @EmpleadoID: ID del empleado a consultar
+-- Retorna: Número total de asistencias
+
+-- 2. Clientes.FC_TotalUsuariosActivos
+-- Propósito: Cuenta el total de clientes activos en el sistema
+-- Parámetros: Ninguno
+-- Retorna: Número total de clientes activos (con actividad = 'A')
+
+-- 3. RecursosHumanos.FC_TotalRetardosEmp
+-- Propósito: Calcula el total de retardos de un empleado
+-- Parámetros:
+--   @EmpleadoID: ID del empleado a consultar
+-- Retorna: Número total de retardos (llegadas después de las 7:00)
+
+-- 4. Personas.FC_TotalPersonaFisicaMoral
+-- Propósito: Cuenta el total de personas según su tipo (física o moral)
+-- Parámetros:
+--   @tipo: Tipo de persona a contar ('F' para física, 'M' para moral)
+-- Retorna: Número total de personas del tipo especificado
+
+-- FUNCIONES CON VALORES DE TABLA
+-- =============================
+
+-- 1. RecursosHumanos.N_EmpleadoContrato
+-- Propósito: Agrupa y cuenta empleados por tipo de contrato
+-- Retorna: Tabla con conteo de empleados por tipo de contrato
+-- Columnas retornadas:
+--   NtipoContrato: Cantidad de empleados
+--   tipo_contrato: Tipo de contrato (SIN/CON/EVE)
+
+-- 2. RecursosHumanos.AsistenciaPeriodo
+-- Propósito: Genera reporte detallado de asistencias en un período específico
+-- Parámetros:
+--   @fecha_inicio: Fecha inicial del período
+--   @fecha_fin: Fecha final del período
+-- Retorna: Tabla con detalles de asistencia incluyendo:
+--   - Nombre del establecimiento
+--   - Nombre completo del empleado
+--   - Fecha
+--   - Hora de entrada y salida
+
 --         SCALABLE FUNCTION. -
 -- 1.- Total de asistencias
 CREATE FUNCTION RecursosHumanos.FC_TotalAsistenciasEmpleados(@EmpleadoID BIGINT) RETURNS BIGINT AS

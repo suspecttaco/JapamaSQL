@@ -1,22 +1,39 @@
---- EJEMPLO
+/*
+====================================================================
+    VISTAS DEL SISTEMA - SAPWS
+====================================================================
+    Autor: DB Admin Team
+    Fecha: 2025-05-30
+    
+Este script contiene todas las vistas (views) del sistema organizadas 
+por módulos:
 
--- CREATE VIEW RH.vw_EmpleadosActivos
--- AS
--- SELECT
---     e.EmpleadoId,
---     e.rfc,
---     e.nss,
---     p.nombre,
---     p.apellido_paterno,
---     p.apellido_materno,
---     d.nombre AS Departamento,
---     pu.descripcion AS Puesto
--- FROM RecursosHumanos.Empleado e
---          INNER JOIN Personas.Persona p ON e.PersonaId = p.PersonaId
---          INNER JOIN RecursosHumanos.Departamento d ON e.DepartamentoId = d.DepartamentoId
---        INNER JOIN RecursosHumanos.Puesto pu ON e.PuestoId = pu.PuestoId
--- WHERE e.estatus = 'A';
--- GO
+RECURSOS HUMANOS (3):
+- V1_ListaEmpleadosActivos: Empleados actualmente trabajando
+- V8_EmpleadosSindicato: Empleados con contrato sindical 
+- V9_EmpleadosConfianza: Empleados de confianza
+- V10_EmpleadosEventuales: Empleados temporales
+- V14-16_ListaEmpleados[Turno]: Empleados por turno laboral
+
+CLIENTES (1):
+- V2_ListaClientes: Clientes activos en el sistema
+
+SERVICIOS (4): 
+- V3_ContratosActivos: Contratos de servicio vigentes
+- V6_ListaReportes: Historial de reportes y ubicaciones
+- V11_ListaClientesCartaNoAdeudos: Cartas de no adeudo
+- V12_ListaClientesSuspension: Solicitudes de suspensión
+
+INVENTARIOS (3):
+- V4_ListaInventarioActual: Inventario actual completo
+- V5_ListaProveedores: Catálogo de proveedores
+- V13_ListaVehiculosSucursal: Vehículos por sucursal
+
+SUCURSALES (1):
+- V7_ListaSucuralesTipo: Catálogo de sucursales por tipo
+
+====================================================================
+*/
 
 --1.-Lista empleados Activos
 CREATE VIEW RecursosHumanos.V1_ListaEmpleadosActivos AS

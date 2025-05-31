@@ -1,3 +1,73 @@
+/*
+=============================================
+    ESQUEMA DE AUDITORÍA
+=============================================
+Creación del esquema donde se almacenarán todas las tablas y objetos 
+relacionados con la auditoría del sistema
+*/
+
+/* 
+=============================================
+    TRIGGERS DML
+=============================================
+1. Fecha_Mod_Trigger_ALL
+   - Actualiza automáticamente el campo fecha_mod en todas las tablas
+   - Se ejecuta después de cada UPDATE
+   - Evita actualizaciones recursivas verificando si fecha_mod fue modificada
+
+2. TR_BITACORA_MOD_ALL
+   - Registra todas las modificaciones realizadas en las tablas principales
+   - Almacena información sobre el usuario, fecha y datos modificados
+   
+3. TR_Historial_Inventario
+   - Mantiene un historial de cambios en cantidades de inventario
+   - Registra cantidad anterior y nueva
+
+4. TR_REGLA_SUELDOS
+   - Impide la reducción de sueldos base
+   - Genera error si se intenta reducir el salario
+
+5. TR_Registro_Sueldos
+   - Mantiene historial de modificaciones de sueldos
+   - Registra sueldo anterior y nuevo
+
+6. TR_HORARIO_MAX
+   - Controla la duración máxima de los turnos:
+     * Matutino: máximo 8 horas
+     * Vespertino: máximo 7.5 horas
+     * Nocturno: máximo 7 horas
+
+7. TR_CHECK_TIPO_INVENTARIO
+   - Valida que cada registro de inventario tenga al menos un tipo asociado
+   - MaterialID, MobiliarioId o VehiculoId debe existir
+
+8. TR_SALDO_ATRASADO
+   - Actualiza saldos atrasados automáticamente
+   - Suma el adeudo actual al anterior cuando se vence la fecha
+*/
+
+/*
+=============================================
+    TRIGGERS DDL
+=============================================
+1. TG_REGISTRO_MOVS
+   - Registra cambios estructurales en la base de datos
+   - Monitorea creación, modificación y eliminación de:
+     * Tablas
+     * Vistas
+     * Procedimientos almacenados
+     * Funciones
+*/
+
+/*
+=============================================
+    TRIGGERS LOGON
+=============================================
+1. TR_RegistroAccesos
+   - Registra los accesos a la base de datos
+   - Evita registros duplicados en ventanas de 30 minutos
+   - Deshabilitado por defecto para evitar sobrecarga
+*/
 USE BD_JAPAMA
 GO
 

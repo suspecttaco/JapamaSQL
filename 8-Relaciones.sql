@@ -1,6 +1,32 @@
 use BD_JAPAMA
 go
 
+/*
+Las relaciones establecidas anteriormente definen las siguientes conexiones:
+
+1. Relaciones del módulo Inventarios:
+   - Proveedor -> Persona: Vincula proveedores con sus datos personales
+   - TallerVehiculo -> Persona: Conecta talleres con información de contacto
+   - Facturación -> Establecimiento: Asocia facturas con sucursales
+   - Vehículo -> Establecimiento: Asigna vehículos a sucursales específicas
+
+2. Relaciones del módulo Clientes:
+   - Cliente -> Persona: Vincula clientes con sus datos personales
+   - Adeudos -> Establecimiento: Asocia deudas con sucursales específicas
+   - TicketServicio -> Cliente: Conecta tickets de servicio con clientes
+
+3. Relaciones del módulo Sucursales:
+   - Establecimiento -> Domicilio: Asocia ubicaciones físicas con sucursales
+   - CajeroAutomatico -> Banco: Vincula cajeros con sus bancos correspondientes
+
+4. Relaciones del módulo Recursos Humanos:
+   - Empleado -> Persona: Conecta empleados con sus datos personales
+   - Empleado -> Establecimiento: Asigna empleados a sucursales específicas
+
+Nota: Algunas relaciones aparecen duplicadas en el código y deberían ser revisadas
+para evitar redundancia (ejemplo: Vehiculo -> Establecimiento).
+*/
+
 --Inventarios a Personas
 alter table Inventarios.Proveedor
 add constraint FK_Proveedor_Persona
